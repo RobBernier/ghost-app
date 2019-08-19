@@ -345,102 +345,17 @@ template {
   display: none;
 }
 
+body {
+  background-image: url("../img/backgrounds/pool.png");
+  background-size: 100% 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 button {
   cursor: pointer;
   padding: 0.5em;
   font-size: 1.2em;
-}
-
-.app__inner {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-     -moz-box-orient: vertical;
-     -moz-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100vh;
-}
-
-.app__top {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: calc(100% + 200px);
-  max-height: 80vh;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.app__bottom {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.control__left, .control__right {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-     -moz-box-orient: vertical;
-     -moz-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-}
-
-.ghost-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 30vw;
-  height: 100%;
 }
 
 .ghost {
@@ -495,16 +410,70 @@ button {
   position: absolute;
 }
 
+.ghost__head--0 {
+  top: 11%;
+  left: 39%;
+  width: 15%;
+}
+
 .ghost__head--1 {
   top: 10%;
-  left: 16%;
+  left: 40%;
+  width: 14%;
+}
+
+.ghost__head--2 {
+  top: 10%;
+  left: 39%;
+  width: 15%;
+}
+
+.ghost__head--3 {
+  top: 11%;
+  left: 39%;
+  width: 15%;
+}
+
+.ghost__head--4 {
+  top: 10.5%;
+  left: 36%;
   width: 19%;
 }
 
-.ghost__head--2, .ghost__head--3 {
-  top: 36px;
-  left: 16%;
+.ghost__head--5 {
+  top: 11%;
+  left: 38%;
   width: 19%;
+}
+
+.ghost__head--6 {
+  top: 10%;
+  left: 39%;
+  width: 15%;
+}
+
+.ghost__head--7 {
+  top: 10%;
+  left: 40%;
+  width: 11%;
+}
+
+.ghost__head--8 {
+  top: 11%;
+  left: 38%;
+  width: 17%;
+}
+
+.ghost__head--9 {
+  top: 12%;
+  left: 38%;
+  width: 16%;
+}
+
+.ghost__head--10 {
+  top: 11%;
+  left: 40%;
+  width: 13%;
 }
 
 .ghost__pattern {
@@ -565,6 +534,195 @@ button {
   to {
     top: -2vh;
   }
+}
+
+.control__left, .control__right {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+.app.js-firstvisit .control__left {
+  left: -30px;
+}
+
+.app.js-firstvisit .control__right {
+  right: -30px;
+}
+
+.splashscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
+  -o-transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
+}
+
+.splashscreen.js-grow {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+  visibility: visible;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
+  -o-transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
+}
+
+.app {
+  position: relative;
+}
+
+.app__inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.app__top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100% + 200px);
+  max-height: 80vh;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app__bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.app.js-firstvisit .app__top {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.app.js-firstvisit .app__bottom {
+  position: relative;
+  top: 30px;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.app.js-firstvisit .control__left, .app.js-firstvisit .control__right {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease, 0.3s;
+  -o-transition: all 0.3s ease, 0.3s;
+  transition: all 0.3s ease, 0.3s;
+}
+
+.app.js-show .app__top, .app.js-show .app__bottom {
+  opacity: 1;
+}
+
+.app.js-show .app__bottom {
+  top: 0;
+}
+
+.app.js-show .control__left {
+  opacity: 1;
+  left: 0;
+}
+
+.app.js-show .control__right {
+  opacity: 1;
+  right: 0;
+}
+
+.ghost-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30vw;
+  height: 100%;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

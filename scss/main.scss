@@ -1,7 +1,9 @@
 @import 'base/normalize';
 @import 'base/base';
 
+@import 'components/ghost';
+@import 'components/controls';
+@import 'components/splashscreen';
+
 @import 'layout/app';
 @import 'layout/ghost-container';
-
-@import 'components/ghost';

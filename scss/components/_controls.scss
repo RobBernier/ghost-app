@@ -1,0 +1,21 @@
+.control {
+  &__left,
+  &__right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.app.js-firstvisit {
+  .control {
+    &__left {
+      left: -30px;
+    }
+
+    &__right {
+      right: -30px;
+    }
+  }
+}

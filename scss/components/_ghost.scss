@@ -42,18 +42,71 @@
 
   &__head {
     position: absolute;
+    
+    &--0 {
+      top: 11%;
+      left: 39%;
+      width: 15%;
+    }
 
     &--1 {
       top: 10%;
-      left: 16%;
-      width: 19%;
+      left: 40%;
+      width: 14%;
     }
 
-    &--2,
+    &--2 {
+      top: 10%;
+      left: 39%;
+      width: 15%;
+    }
+    
     &--3 {
-      top: 36px;
-      left: 16%;
+      top: 11%;
+      left: 39%;
+      width: 15%;
+    }
+    
+    &--4 {
+      top: 10.5%;
+      left: 36%;
       width: 19%;
+    }
+    
+    &--5 {
+      top: 11%;
+      left: 38%;
+      width: 19%;
+    }
+    
+    &--6 {
+      top: 10%;
+      left: 39%;
+      width: 15%;
+    }
+    
+    &--7 {    
+      top: 10%;
+      left: 40%;
+      width: 11%;
+    }
+    
+    &--8 {
+      top: 11%;
+      left: 38%;
+      width: 17%;
+    }
+    
+    &--9 {
+      top: 12%;
+      left: 38%;
+      width: 16%;
+    }
+    
+    &--10 {    
+      top: 11%;
+      left: 40%;
+      width: 13%;
     }
   }
 

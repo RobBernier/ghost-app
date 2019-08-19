@@ -1,4 +1,6 @@
 .app {
+  position: relative;
+
   &__inner {
     display: flex;
     align-items: center;
@@ -18,13 +20,54 @@
     display: flex;
     justify-content: center;
   }
-}
 
-.control {
-  &__left,
-  &__right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  &.js-firstvisit {
+    .app {
+      &__top {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &__bottom {
+        position: relative;
+        top: 30px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .control {
+      &__left,
+      &__right {
+        opacity: 0;
+        transition: all 0.3s ease, 0.3s;
+      }
+    }
+  }
+
+  &.js-show {
+    .app {
+      &__top,
+      &__bottom {
+        opacity: 1;
+      }
+
+      &__bottom {
+        top: 0;
+      }
+    }
+
+    .control {
+      &__left {
+        opacity: 1;
+        left: 0;
+      }
+
+
+      &__right {
+        opacity: 1;
+        right: 0;
+      }
+    }
   }
 }
