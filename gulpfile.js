@@ -47,7 +47,7 @@ function css() {
       ]),
     )
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./css/'))
+    .pipe(gulp.dest('./public/css/'))
     // .pipe(browsersync.stream());
 }
 
@@ -56,7 +56,7 @@ function js() {
     .src(['./js/**/*.js'])
     .pipe(plumber())
     .pipe(babel())
-    .pipe(gulp.dest('./js-compiled/'))
+    .pipe(gulp.dest('./public/js-compiled/'))
     // .pipe(browsersync.stream());
 }
 
