@@ -7,6 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const browsersync = require('browser-sync').create();
 const babel = require('gulp-babel');
+const image = require('gulp-image');
 
 // BrowserSync
 // function browserSync(done) {
@@ -31,6 +32,15 @@ const plumberErrorHandler = {
   }),
 };
 
+function img() {
+  return gulp
+    .src('./img/**/*')
+    .pipe(image({
+      optipng: true,
+    }))
+    .pipe(gulp.dest('./public/img'))
+}
+
 // CSS development task
 function css() {
   return gulp
@@ -47,7 +57,7 @@ function css() {
       ]),
     )
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./css/'))
+    .pipe(gulp.dest('./public/css/'))
     // .pipe(browsersync.stream());
 }
 
@@ -56,7 +66,7 @@ function js() {
     .src(['./js/**/*.js'])
     .pipe(plumber())
     .pipe(babel())
-    .pipe(gulp.dest('./js-compiled/'))
+    .pipe(gulp.dest('./public/js-compiled/'))
     // .pipe(browsersync.stream());
 }
 
@@ -72,5 +82,6 @@ const watch = gulp.parallel(watchFiles /*, browserSync */);
 // Export tasks
 exports.css = css;
 exports.js = js;
+exports.img = img;
 exports.watch = watch;
 exports.default = watch;

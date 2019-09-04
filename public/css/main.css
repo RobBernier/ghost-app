@@ -378,7 +378,7 @@ button {
 
 .ghost__body {
   height: 100%;
-  background-image: url("../img/body.png");
+  background-image: url("../img/body/body.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
