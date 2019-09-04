@@ -26,7 +26,7 @@ const app = new Vue({
                     </div>
 
                     <div class='ghost-container'>
-                      <div class='ghost'>
+                      <div class='ghost' id='ghost'>
                         <div class='ghost__body'>
                           <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
                             <img :src="'./img/hats/' + hat.choice + '.png'">
@@ -54,6 +54,7 @@ const app = new Vue({
 
                     <div class='app__bottom'>
                       <button v-on:click='randomize()'><span>Randomize</span></button>
+                      <button v-on:click='print()'><span>Print</span></button>
                     </div>
                   </div>
              </div>`,
@@ -123,6 +124,12 @@ const app = new Vue({
       randomizeOption(this.head);
       randomizeOption(this.pattern);
       randomizeOption(this.shoes);
+    },
+
+    print() {
+      domtoimage.toBlob(document.getElementById('ghost')).then(function (blob) {
+        window.saveAs(blob, 'ghost.png');
+      });
     },
 
     splashscreen() {

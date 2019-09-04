@@ -7,6 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const browsersync = require('browser-sync').create();
 const babel = require('gulp-babel');
+const image = require('gulp-image');
 
 // BrowserSync
 // function browserSync(done) {
@@ -30,6 +31,15 @@ const plumberErrorHandler = {
     message: 'Error: <%= error.message %>',
   }),
 };
+
+function img() {
+  return gulp
+    .src('./img/**/*')
+    .pipe(image({
+      optipng: true,
+    }))
+    .pipe(gulp.dest('./public/img'))
+}
 
 // CSS development task
 function css() {
@@ -72,5 +82,6 @@ const watch = gulp.parallel(watchFiles /*, browserSync */);
 // Export tasks
 exports.css = css;
 exports.js = js;
+exports.img = img;
 exports.watch = watch;
 exports.default = watch;
