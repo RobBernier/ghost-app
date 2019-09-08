@@ -12,36 +12,52 @@
 
   &__body {
     height: 100%;
-    background-image: url('../img/body/body.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
   }
 
   &__hat {
     position: absolute;
+    z-index: 2;
 
     &--1 {
-      top: -20px;
-      left: 17%;  
-      width: 30%;
+      top: -8%;
+      left: 25%;
+      width: 50%;
     }
 
     &--2 {
-      top: 0;
-      left: 12%;
+      top: -2%;
+      left: 33%;
       width: 30%;
     }
 
     &--3 {
       top: 0;
-      left: 15%;
-      width: 30%;
+      left: 29%;
+      width: 40%;
+    }
+
+    &--4 {
+      top: -22%;
+      left: 35%;
+      width: 26%;
+    }
+
+    &--5 {    
+      top: 1%;
+      left: 17%;
+      width: 60%;
+    }
+
+    &--6 {    
+      top: 0;
+      left: 33%;
+      width: 60%;
     }
   }
 
   &__head {
     position: absolute;
+    z-index: 1;
     
     &--0 {
       top: 11%;
@@ -51,20 +67,20 @@
 
     &--1 {
       top: 10%;
-      left: 40%;
-      width: 14%;
+      left: 12%;
+      width: 44%;
     }
 
     &--2 {
-      top: 10%;
-      left: 39%;
-      width: 15%;
+      top: 9%;
+      left: 36%;
+      width: 27%;
     }
     
     &--3 {
       top: 11%;
-      left: 39%;
-      width: 15%;
+      left: 33%;
+      width: 26%;  
     }
     
     &--4 {
@@ -108,25 +124,47 @@
       left: 40%;
       width: 13%;
     }
+    
+    &--11 {    
+      top: 8%;
+      left: 37%;
+      width: 20%;
+    }
+    
+    &--12 {    
+      top: 8%;
+      left: 39%;
+      width: 16%;  
+    }
+    
+    &--13 {    
+      top: 8%;
+      left: 39%;
+      width: 18%;
+    }
+    
+    &--14 {    
+      top: 11%;
+      left: 39%;
+      width: 14%;
+    }
+    
+    &--15 {      
+      top: 8%;
+      left: 39%;
+      width: 16%;
+    }
   }
 
-  &__pattern {
-    position: absolute;
-    top: 6%;
-    left: 3%;
-    width: 93%;
-    height: auto;
-    z-index: -1;
-
-    &--2 {
-      top: 6%;
-      left: 1%;
-      width: 96%;
-    }
+  &__sheet {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   &__shoes {
     position: absolute;
+    z-index: 1;
 
     &--1 {
       bottom: 2%;

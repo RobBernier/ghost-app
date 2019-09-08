@@ -17,16 +17,17 @@ const app = new Vue({
                 </div>
               </div>
                 <div class='app__inner'>
+                  <button class='app__about-button'><span>About This App</span></button>
                   <div class='app__top'>
                     <div class='control__left'>
                       <button v-on:click='updateFilterIndex(hat, false)'><span>Hat-</span></button>
                       <button v-on:click='updateFilterIndex(head, false)'><span>Head-</span></button>
-                      <button v-on:click='updateFilterIndex(pattern, false)'><span>Sheet-</span></button>
+                      <button v-on:click='updateFilterIndex(sheet, false)'><span>Sheet-</span></button>
                       <button v-on:click='updateFilterIndex(shoes, false)'><span>Shoes-</span></button>
                     </div>
 
                     <div class='ghost-container'>
-                      <div class='ghost' id='ghost'>
+                      <div class='ghost'>
                         <div class='ghost__body'>
                           <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
                             <img :src="'./img/hats/' + hat.choice + '.png'">
@@ -34,8 +35,8 @@ const app = new Vue({
                           <div class='ghost__head' :class="'ghost__head--' + head.choice">
                             <img :src="'./img/head/' + head.choice + '.png'">
                           </div>
-                          <div v-if='pattern.choice !== 0' class='ghost__pattern' :class="'ghost__pattern--' + pattern.choice">
-                            <img :src="'./img/pattern/' + pattern.choice + '.png'">
+                          <div class='ghost__sheet' :class="'ghost__sheet--' + sheet.choice">
+                            <img :src="'./img/sheet/' + sheet.choice + '.png'">
                           </div>
                           <div v-if='shoes.choice !== 0' class='ghost__shoes' :class="'ghost__shoes--' + shoes.choice">
                             <img :src="'./img/shoes/' + shoes.choice + '.png'">
@@ -47,7 +48,7 @@ const app = new Vue({
                     <div class='control__right'>
                         <button v-on:click='updateFilterIndex(hat, true)'><span>Hat+</span></button>
                         <button v-on:click='updateFilterIndex(head, true)'><span>Head+</span></button>
-                        <button v-on:click='updateFilterIndex(pattern, true)'><span>Sheet+</span></button>
+                        <button v-on:click='updateFilterIndex(sheet, true)'><span>Sheet+</span></button>
                         <button v-on:click='updateFilterIndex(shoes, true)'><span>Shoes+</span></button>
                       </div>
                     </div>
@@ -57,22 +58,34 @@ const app = new Vue({
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
                   </div>
+                  <div class='about'>
+                    <div class='about__inner'>
+                      <div class='about__content'>
+                        <h2>About Ghost Machine</h2>
+                        <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
+                        <div class='about__donate'>
+                          <p>All donations go to keeping this site alive and putting food in my belly.</p>
+                          <a href='www.paypal.com'><span>Donate!</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
              </div>`,
   data: {
     visited: false,
     results: [],
     hat: {
       choice: 0,
-      optionct: 3
+      optionct: 6
     },
     head: {
-      choice: 1,
-      optionct: 10 // total - 1
+      choice: 0,
+      optionct: 15 // total - 1
 
     },
-    pattern: {
+    sheet: {
       choice: 0,
-      optionct: 3
+      optionct: 0
     },
     shoes: {
       choice: 0,
@@ -121,13 +134,13 @@ const app = new Vue({
       }
 
       randomizeOption(this.hat);
-      randomizeOption(this.head);
-      randomizeOption(this.pattern);
+      randomizeOption(this.head); // randomizeOption(this.sheet); TODO: REmove to randomize sheet later
+
       randomizeOption(this.shoes);
     },
 
     print() {
-      domtoimage.toBlob(document.getElementById('ghost')).then(function (blob) {
+      domtoimage.toBlob(document.getElementsByClassName('ghost-container')[0]).then(function (blob) {
         window.saveAs(blob, 'ghost.png');
       });
     },
