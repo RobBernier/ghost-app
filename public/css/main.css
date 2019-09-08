@@ -345,8 +345,12 @@ template {
   display: none;
 }
 
+html,
 body {
-  background-image: url("../img/backgrounds/pool.png");
+  font-family: "Patua One", cursive;
+}
+
+body {
   background-size: 100% 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -378,36 +382,52 @@ button {
 
 .ghost__body {
   height: 100%;
-  background-image: url("../img/body/body.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .ghost__hat {
   position: absolute;
+  z-index: 2;
 }
 
 .ghost__hat--1 {
-  top: -20px;
-  left: 17%;
-  width: 30%;
+  top: -8%;
+  left: 25%;
+  width: 50%;
 }
 
 .ghost__hat--2 {
-  top: 0;
-  left: 12%;
+  top: -2%;
+  left: 33%;
   width: 30%;
 }
 
 .ghost__hat--3 {
   top: 0;
-  left: 15%;
-  width: 30%;
+  left: 29%;
+  width: 40%;
+}
+
+.ghost__hat--4 {
+  top: -22%;
+  left: 35%;
+  width: 26%;
+}
+
+.ghost__hat--5 {
+  top: 1%;
+  left: 17%;
+  width: 60%;
+}
+
+.ghost__hat--6 {
+  top: 0;
+  left: 33%;
+  width: 60%;
 }
 
 .ghost__head {
   position: absolute;
+  z-index: 1;
 }
 
 .ghost__head--0 {
@@ -418,20 +438,20 @@ button {
 
 .ghost__head--1 {
   top: 10%;
-  left: 40%;
-  width: 14%;
+  left: 12%;
+  width: 44%;
 }
 
 .ghost__head--2 {
-  top: 10%;
-  left: 39%;
-  width: 15%;
+  top: 9%;
+  left: 36%;
+  width: 27%;
 }
 
 .ghost__head--3 {
   top: 11%;
-  left: 39%;
-  width: 15%;
+  left: 33%;
+  width: 26%;
 }
 
 .ghost__head--4 {
@@ -476,23 +496,45 @@ button {
   width: 13%;
 }
 
-.ghost__pattern {
-  position: absolute;
-  top: 6%;
-  left: 3%;
-  width: 93%;
-  height: auto;
-  z-index: -1;
+.ghost__head--11 {
+  top: 8%;
+  left: 37%;
+  width: 20%;
 }
 
-.ghost__pattern--2 {
-  top: 6%;
-  left: 1%;
-  width: 96%;
+.ghost__head--12 {
+  top: 8%;
+  left: 39%;
+  width: 16%;
+}
+
+.ghost__head--13 {
+  top: 8%;
+  left: 39%;
+  width: 18%;
+}
+
+.ghost__head--14 {
+  top: 11%;
+  left: 39%;
+  width: 14%;
+}
+
+.ghost__head--15 {
+  top: 8%;
+  left: 39%;
+  width: 16%;
+}
+
+.ghost__sheet {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .ghost__shoes {
   position: absolute;
+  z-index: 1;
 }
 
 .ghost__shoes--1 {

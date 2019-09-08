@@ -1,5 +1,9 @@
+html,
 body {
-  background-image: url('../img/backgrounds/pool.png');
+  font-family: $font-patua;
+}
+
+body {
   background-size: 100% 100%;
   object-fit: cover;
 }
