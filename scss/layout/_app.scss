@@ -11,9 +11,15 @@
 
   &__top {
     display: flex;
+    width: calc(100% - 60px);
     height: calc(100% + 200px);
     max-height: 80vh;
-    justify-content: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: $break-medium) {
+      width: calc(100% - 100px);
+      justify-content: center;
+    }
   }
 
   &__bottom {
@@ -23,7 +29,8 @@
 
   &.js-firstvisit {
     .app {
-      &__top {
+      &__top,
+      .about__button {
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -48,7 +55,8 @@
   &.js-show {
     .app {
       &__top,
-      &__bottom {
+      &__bottom,
+      .about__button {
         opacity: 1;
       }
 
