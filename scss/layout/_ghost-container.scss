@@ -2,6 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30vw;
+  width: calc(100vw - 60px);
   height: 100%;
+
+  @media screen and (min-width: $break-medium) {
+    width: 30vw;
+  }
 }

@@ -17,7 +17,19 @@ const app = new Vue({
                 </div>
               </div>
                 <div class='app__inner'>
-                  <button class='app__about-button'><span>About This App</span></button>
+                  <button class='app__about-button' @click='aboutToggle($event)' aria-expanded='false'><span>About This App</span></button>
+                  <div class='about' aria-hidden='true'>
+                    <div class='about__inner'>
+                      <div class='about__content'>
+                        <h2>About Ghost Machine</h2>
+                        <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
+                        <div class='about__donate'>
+                          <p>All donations go to keeping this site alive and putting food in my belly.</p>
+                          <a href='www.paypal.com'><span>Donate!</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class='app__top'>
                     <div class='control__left'>
                       <button v-on:click='updateFilterIndex(hat, false)'><span>Hat-</span></button>
@@ -58,36 +70,28 @@ const app = new Vue({
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
                   </div>
-                  <div class='about'>
-                    <div class='about__inner'>
-                      <div class='about__content'>
-                        <h2>About Ghost Machine</h2>
-                        <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
-                        <div class='about__donate'>
-                          <p>All donations go to keeping this site alive and putting food in my belly.</p>
-                          <a href='www.paypal.com'><span>Donate!</span></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
              </div>`,
   data: {
     visited: false,
     results: [],
     hat: {
+      filename: 'hats',
       choice: 0,
       optionct: 6
     },
     head: {
+      filename: 'head',
       choice: 0,
       optionct: 15 // total - 1
 
     },
     sheet: {
+      filename: 'sheet',
       choice: 0,
       optionct: 0
     },
     shoes: {
+      filename: 'shoes',
       choice: 0,
       optionct: 3
     }
@@ -102,19 +106,28 @@ const app = new Vue({
   },
   methods: {
     updateFilterIndex(obj, isIncrementing) {
+      let $tempChoice = obj.choice;
+
       if (isIncrementing) {
         if (obj.choice === obj.optionct) {
-          obj.choice = 0;
+          $tempChoice = 0;
         } else {
-          obj.choice++;
+          $tempChoice++;
         }
       } else {
         if (obj.choice === 0) {
-          obj.choice = obj.optionct;
+          $tempChoice = obj.optionct;
         } else {
-          obj.choice--;
+          $tempChoice--;
         }
       }
+
+      const newImg = new Image();
+      newImg.src = `./img/${obj.filename}/${$tempChoice}.png`;
+
+      newImg.onload = function () {
+        obj.choice = $tempChoice;
+      };
 
       return false;
     },
@@ -156,6 +169,18 @@ const app = new Vue({
       setTimeout(() => {
         app.classList.add('js-show');
       }, 1300);
+    },
+
+    aboutToggle(e) {
+      const $about = document.getElementsByClassName('about')[0];
+
+      if (e.getAttribute('aria-expanded') === 'false') {
+        e.setAttribute('aria-expanded', 'true');
+        $about.setAttribute('aria-hidden', 'false');
+      } else {
+        e.setAttribute('aria-expanded', 'false');
+        $about.setAttribute('aria-hidden', 'true');
+      }
     }
 
   }
