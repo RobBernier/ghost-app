@@ -618,7 +618,7 @@ button {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background-color: #000000;
+  background-color: #838383;
   border-radius: 100%;
   -webkit-transition: width 0.3s ease, height 0.3s ease;
   -o-transition: width 0.3s ease, height 0.3s ease;
@@ -734,7 +734,7 @@ button {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100vw;
+  width: calc(100% - 60px);
   height: calc(100% + 200px);
   max-height: 80vh;
   -webkit-box-pack: justify;
@@ -746,6 +746,7 @@ button {
 
 @media screen and (min-width: 699px) {
   .app__top {
+    width: calc(100% - 100px);
     -webkit-box-pack: center;
     -webkit-justify-content: center;
        -moz-box-pack: center;
@@ -826,11 +827,13 @@ button {
           align-items: center;
   width: calc(100vw - 60px);
   height: 100%;
+  margin: 0 30px;
 }
 
 @media screen and (min-width: 699px) {
   .ghost-container {
     width: 30vw;
+    margin: 0 50px;
   }
 }
 

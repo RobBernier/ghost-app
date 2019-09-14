@@ -4,8 +4,10 @@
   align-items: center;
   width: calc(100vw - 60px);
   height: 100%;
+  margin: 0 30px;
 
   @media screen and (min-width: $break-medium) {
     width: 30vw;
+    margin: 0 50px;
   }
 }
