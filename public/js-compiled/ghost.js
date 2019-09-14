@@ -17,7 +17,7 @@ const app = new Vue({
                 </div>
               </div>
                 <div class='app__inner'>
-                  <button class='app__about-button' @click='aboutToggle($event)' aria-expanded='false'><span>About This App</span></button>
+                  <button class='app__about-button' @click='aboutToggle()' aria-expanded='false'><span>About This App</span></button>
                   <div class='about' aria-hidden='true'>
                     <div class='about__inner'>
                       <div class='about__content'>
@@ -32,10 +32,10 @@ const app = new Vue({
                   </div>
                   <div class='app__top'>
                     <div class='control__left'>
-                      <button v-on:click='updateFilterIndex(hat, false)'><span>Hat-</span></button>
-                      <button v-on:click='updateFilterIndex(head, false)'><span>Head-</span></button>
-                      <button v-on:click='updateFilterIndex(sheet, false)'><span>Sheet-</span></button>
-                      <button v-on:click='updateFilterIndex(shoes, false)'><span>Shoes-</span></button>
+                      <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'><span>Hat-</span></button>
+                      <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, false)'><span>Head-</span></button>
+                      <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, false)'><span>Sheet-</span></button>
+                      <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, false)'><span>Shoes-</span></button>
                     </div>
 
                     <div class='ghost-container'>
@@ -58,10 +58,10 @@ const app = new Vue({
                     </div>
 
                     <div class='control__right'>
-                        <button v-on:click='updateFilterIndex(hat, true)'><span>Hat+</span></button>
-                        <button v-on:click='updateFilterIndex(head, true)'><span>Head+</span></button>
-                        <button v-on:click='updateFilterIndex(sheet, true)'><span>Sheet+</span></button>
-                        <button v-on:click='updateFilterIndex(shoes, true)'><span>Shoes+</span></button>
+                        <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, true)'><span>Hat+</span></button>
+                        <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, true)'><span>Head+</span></button>
+                        <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, true)'><span>Sheet+</span></button>
+                        <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, true)'><span>Shoes+</span></button>
                       </div>
                     </div>
 
@@ -77,23 +77,27 @@ const app = new Vue({
     hat: {
       filename: 'hats',
       choice: 0,
-      optionct: 6
+      optionct: 6,
+      loading: false
     },
     head: {
       filename: 'head',
       choice: 0,
-      optionct: 15 // total - 1
-
+      optionct: 15,
+      // total - 1
+      loading: false
     },
     sheet: {
       filename: 'sheet',
       choice: 0,
-      optionct: 0
+      optionct: 0,
+      loading: false
     },
     shoes: {
       filename: 'shoes',
       choice: 0,
-      optionct: 3
+      optionct: 3,
+      loading: false
     }
   },
   created: function created() {},
@@ -105,8 +109,25 @@ const app = new Vue({
     }
   },
   methods: {
+    loadImage(obj, index) {
+      // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
+      if (index === 0 && (obj.filename === 'hats' || obj.filename === 'shoes')) {
+        obj.choice = index;
+        obj.loading = false;
+      } else {
+        const newImg = new Image();
+        newImg.src = `./img/${obj.filename}/${index}.png`;
+
+        newImg.onload = function () {
+          obj.choice = index;
+          obj.loading = false;
+        };
+      }
+    },
+
     updateFilterIndex(obj, isIncrementing) {
       let $tempChoice = obj.choice;
+      obj.loading = true;
 
       if (isIncrementing) {
         if (obj.choice === obj.optionct) {
@@ -122,26 +143,24 @@ const app = new Vue({
         }
       }
 
-      const newImg = new Image();
-      newImg.src = `./img/${obj.filename}/${$tempChoice}.png`;
-
-      newImg.onload = function () {
-        obj.choice = $tempChoice;
-      };
-
+      this.loadImage(obj, $tempChoice);
       return false;
     },
 
     randomize() {
+      const _this = this;
+
       function randomizeOption(obj) {
+        obj.loading = true;
         let sameNum = true;
 
         while (sameNum) {
           let randomNum = Math.floor(Math.random() * obj.optionct + 0);
 
           if (randomNum !== obj.choice) {
-            obj.choice = randomNum;
             sameNum = false;
+
+            _this.loadImage(obj, randomNum);
           }
         }
       }
@@ -171,14 +190,14 @@ const app = new Vue({
       }, 1300);
     },
 
-    aboutToggle(e) {
+    aboutToggle() {
       const $about = document.getElementsByClassName('about')[0];
 
-      if (e.getAttribute('aria-expanded') === 'false') {
-        e.setAttribute('aria-expanded', 'true');
+      if (this.$refs.element.getAttribute('aria-expanded') === 'false') {
+        this.$refs.element.setAttribute('aria-expanded', 'true');
         $about.setAttribute('aria-hidden', 'false');
       } else {
-        e.setAttribute('aria-expanded', 'false');
+        this.$refs.element.setAttribute('aria-expanded', 'false');
         $about.setAttribute('aria-hidden', 'true');
       }
     }
