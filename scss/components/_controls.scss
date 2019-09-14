@@ -13,7 +13,29 @@
       background: transparent;
       background-color: $color-white;
       border-radius: 100%;
-      transition: background-color 0.3s ease 0.3s;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: calc(50% - (30px / 2));
+        left: calc(50% - (30px / 2));
+        width: 30px;
+        height: 30px;
+        background-image: url('../img/icons/load-flower.png');
+        background-size: contain;
+        background-position: center;
+        animation-duration: 2s;
+        animation-name: spin;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        opacity: 0;
+        transition: opacity 0.3s ease 0.3s;
+      }
+
+      @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+      }
 
       &:before {
         content: '';
@@ -37,7 +59,9 @@
       }
 
       &.jsloading {
-        background-color: $color-red;
+        &:after {
+          opacity: 1;
+        }
       }
 
       span {

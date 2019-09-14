@@ -17,15 +17,18 @@ const app = new Vue({
                 </div>
               </div>
                 <div class='app__inner'>
-                  <button class='app__about-button' @click='aboutToggle()' aria-expanded='false'><span>About This App</span></button>
+                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'><span>About This App</span></button>
                   <div class='about' aria-hidden='true'>
                     <div class='about__inner'>
                       <div class='about__content'>
-                        <h2>About Ghost Machine</h2>
-                        <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
+                        <h2 class='about__header'>About Ghost Machine</h2>
+                        <img class='about__img' src='./img/about/bio.jpg' alt='Krista and Rob, in ghost attire'>
+                        <div class='about__desc'>
+                          <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
+                        </div>
                         <div class='about__donate'>
-                          <p>All donations go to keeping this site alive and putting food in my belly.</p>
-                          <a href='www.paypal.com'><span>Donate!</span></a>
+                          <p>All donations go to keeping this site alive and putting food in our bellies.</p>
+                          <a href='https://paypal.me/ghostapp' target="_blank"><span>Donate!</span></a>
                         </div>
                       </div>
                     </div>
@@ -42,7 +45,7 @@ const app = new Vue({
                       <div class='ghost'>
                         <div class='ghost__body'>
                           <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
-                            <img :src="'./img/hats/' + hat.choice + '.png'">
+                            <img :src="'./img/hat/' + hat.choice + '.png'">
                           </div>
                           <div class='ghost__head' :class="'ghost__head--' + head.choice">
                             <img :src="'./img/head/' + head.choice + '.png'">
@@ -75,7 +78,7 @@ const app = new Vue({
     visited: false,
     results: [],
     hat: {
-      filename: 'hats',
+      filename: 'hat',
       choice: 0,
       optionct: 6,
       loading: false
@@ -111,7 +114,7 @@ const app = new Vue({
   methods: {
     loadImage(obj, index) {
       // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
-      if (index === 0 && (obj.filename === 'hats' || obj.filename === 'shoes')) {
+      if (index === 0 && (obj.filename === 'hat' || obj.filename === 'shoes')) {
         obj.choice = index;
         obj.loading = false;
       } else {
@@ -190,14 +193,14 @@ const app = new Vue({
       }, 1300);
     },
 
-    aboutToggle() {
+    aboutToggle(e) {
       const $about = document.getElementsByClassName('about')[0];
 
-      if (this.$refs.element.getAttribute('aria-expanded') === 'false') {
-        this.$refs.element.setAttribute('aria-expanded', 'true');
+      if (e.target.getAttribute('aria-expanded') === 'false') {
+        e.target.setAttribute('aria-expanded', 'true');
         $about.setAttribute('aria-hidden', 'false');
       } else {
-        this.$refs.element.setAttribute('aria-expanded', 'false');
+        e.target.setAttribute('aria-expanded', 'false');
         $about.setAttribute('aria-hidden', 'true');
       }
     }

@@ -30,7 +30,7 @@
   &.js-firstvisit {
     .app {
       &__top,
-      &__about-button {
+      .about__button {
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -56,7 +56,7 @@
     .app {
       &__top,
       &__bottom,
-      &__about-button {
+      .about__button {
         opacity: 1;
       }
 

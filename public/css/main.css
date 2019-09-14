@@ -362,6 +362,116 @@ button {
   font-size: 1.2em;
 }
 
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.21;
+  margin-bottom: 0.3em;
+}
+
+@media screen and (min-width: 699px) {
+  h1 {
+    font-size: 45px;
+    margin-bottom: 0.8em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 65px;
+    margin-bottom: 0.6em;
+  }
+}
+
+h2 {
+  margin: 0.7em 0 1em;
+  color: #000000;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+@media screen and (min-width: 699px) {
+  h2 {
+    margin: 0.77em 0 1.3em;
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    margin-bottom: 35px;
+    font-size: 37px;
+  }
+}
+
+h3 {
+  margin: 0.7em 0 1em;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+@media screen and (min-width: 699px) {
+  h3 {
+    margin: 1.7em 0 0.9em;
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h3 {
+    margin: 1.4em 0 0.7em;
+    font-size: 28px;
+  }
+}
+
+h4 {
+  margin: 1.4em 0 0.75em;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.21;
+}
+
+@media screen and (min-width: 1024px) {
+  h4 {
+    font-size: 25px;
+  }
+}
+
+h5 {
+  margin: 1.2em 0 1.4em;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.21;
+}
+
+@media screen and (min-width: 699px) {
+  h5 {
+    font-size: 18px;
+    margin: 2.4em 0 1.1em;
+  }
+}
+
+h6 {
+  margin: 1.2em 0 1.1em;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.21;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 699px) {
+  h6 {
+    margin: 2.7em 0 1.5em;
+  }
+}
+
+p {
+  font-weight: 400;
+  margin: 0 0 1.7em;
+}
+
 .ghost {
   position: relative;
   top: 0;
@@ -603,9 +713,52 @@ button {
   background: transparent;
   background-color: #ffffff;
   border-radius: 100%;
-  -webkit-transition: background-color 0.3s ease 0.3s;
-  -o-transition: background-color 0.3s ease 0.3s;
-  transition: background-color 0.3s ease 0.3s;
+}
+
+.control__left button:after, .control__right button:after {
+  content: '';
+  position: absolute;
+  top: calc(50% - (30px / 2));
+  left: calc(50% - (30px / 2));
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/icons/load-flower.png");
+  background-size: contain;
+  background-position: center;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease 0.3s;
+  -o-transition: opacity 0.3s ease 0.3s;
+  transition: opacity 0.3s ease 0.3s;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .control__left button:before, .control__right button:before {
@@ -631,8 +784,8 @@ button {
   height: calc(100% + 8px);
 }
 
-.control__left button.jsloading, .control__right button.jsloading {
-  background-color: #ff0000;
+.control__left button.jsloading:after, .control__right button.jsloading:after {
+  opacity: 1;
 }
 
 .control__left button span, .control__right button span {
@@ -768,7 +921,8 @@ button {
           justify-content: center;
 }
 
-.app.js-firstvisit .app__top, .app.js-firstvisit .app__about-button {
+.app.js-firstvisit .app__top,
+.app.js-firstvisit .app .about__button {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
@@ -791,7 +945,8 @@ button {
   transition: all 0.3s ease, 0.3s;
 }
 
-.app.js-show .app__top, .app.js-show .app__bottom, .app.js-show .app__about-button {
+.app.js-show .app__top, .app.js-show .app__bottom,
+.app.js-show .app .about__button {
   opacity: 1;
 }
 
@@ -838,24 +993,103 @@ button {
 }
 
 .about {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: 100%;
   opacity: 0;
-  -webkit-transition: opacity 0.3s ease, display 0s 0.3s;
-  -o-transition: opacity 0.3s ease, display 0s 0.3s;
-  transition: opacity 0.3s ease, display 0s 0.3s;
+  background-color: #ffffff;
+  -webkit-transition: opacity 0.3s ease, z-index 0s 0.3s;
+  -o-transition: opacity 0.3s ease, z-index 0s 0.3s;
+  transition: opacity 0.3s ease, z-index 0s 0.3s;
+  z-index: -1;
 }
 
 .about[aria-hidden='false'] {
-  display: block;
   opacity: 1;
-  -webkit-transition: opacity 0.3s ease, display 0s 0s;
-  -o-transition: opacity 0.3s ease, display 0s 0s;
-  transition: opacity 0.3s ease, display 0s 0s;
+  -webkit-transition: opacity 0.3s ease, z-index 0s 0s;
+  -o-transition: opacity 0.3s ease, z-index 0s 0s;
+  transition: opacity 0.3s ease, z-index 0s 0s;
+  z-index: 5;
+}
+
+.about__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.about__button span {
+  pointer-events: none;
+}
+
+.about__inner {
+  padding: 0 20px;
+  max-width: 600px;
+}
+
+@media screen and (min-width: 699px) {
+  .about__inner {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .about__inner {
+    padding: 0 50px;
+  }
+}
+
+.about__header {
+  text-align: center;
+  margin: 0 0 1.2em;
+}
+
+.about__desc {
+  text-align: justify;
+}
+
+.about__img {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 2em;
+}
+
+.about__donate a {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #0e45db;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.about__donate a:hover {
+  background-color: #2156e9;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

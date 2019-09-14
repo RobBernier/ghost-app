@@ -1,16 +1,79 @@
 .about {
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.3s ease, display 0s 0.3s;
+  background-color: $color-white;
+  transition: opacity 0.3s ease, z-index 0s 0.3s;
+  z-index: -1;
 
   &[aria-hidden='false'] {
-    display: block;
     opacity: 1;
-    transition: opacity 0.3s ease, display 0s 0s;
+    transition: opacity 0.3s ease, z-index 0s 0s;
+    z-index: 5;
+  }
+
+  &__button {
+    position: absolute;
+    top:0;
+    right: 0;
+    z-index: 6;
+
+    span {
+      pointer-events: none;
+    }
+  }
+
+  &__inner {
+    padding: 0 20px;
+    max-width: 600px;
+
+    @media screen and (min-width: $break-medium) {
+      padding: 0 30px;
+    }
+
+    @media screen and (min-width: $break-large) {
+      padding: 0 50px;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin: 0 0 1.2em;
+  }
+
+  &__desc {
+    text-align: justify;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 2em;
+  }
+
+  &__donate {
+    a {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: $color-blue;
+      color: $color-white;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $color-blue2;
+      }
+    }
   }
 }
