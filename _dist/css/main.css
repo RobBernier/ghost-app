@@ -814,41 +814,42 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
-  transition: opacity 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
-  -o-transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s, -webkit-transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
+  -o-transition: opacity 0.3s ease, visibility 0s 0.3s;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+  z-index: 10;
 }
 
 .splashscreen.js-grow {
   opacity: 1;
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
   visibility: visible;
-  -webkit-transition: opacity 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
-  transition: opacity 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
-  -o-transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s, -webkit-transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, visibility 0s 0s;
+  -o-transition: opacity 0.3s ease, visibility 0s 0s;
+  transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+.splashscreen__header {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */
+}
+
+.splashscreen__video img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .app {
@@ -1066,13 +1067,6 @@ p {
   text-align: justify;
 }
 
-.about__img {
-  display: block;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto 2em;
-}
-
 .about__donate a {
   display: block;
   margin: 0 auto;
@@ -1090,6 +1084,11 @@ p {
 
 .about__donate a:hover {
   background-color: #2156e9;
+}
+
+.about-slider {
+  overflow: hidden;
+  margin: 0 auto 2em;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
