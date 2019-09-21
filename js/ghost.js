@@ -82,19 +82,19 @@ const app = new Vue({
     hat: {
       filename: 'hat',
       choice: 0,
-      optionct: 6,
+      optionct: 7,
       loading: false,
     },
     head: {
       filename: 'head',
       choice: 0,
-      optionct: 15, // total - 1
+      optionct: 16, // total - 1
       loading: false,
     },
     sheet: {
       filename: 'sheet',
       choice: 0,
-      optionct: 0,
+      optionct: 11,
       loading: false,
     },
     shoes: {
@@ -170,7 +170,7 @@ const app = new Vue({
 
       randomizeOption(this.hat);
       randomizeOption(this.head);
-      // randomizeOption(this.sheet); TODO: REmove to randomize sheet later
+      randomizeOption(this.sheet);
       randomizeOption(this.shoes);
     },
 
