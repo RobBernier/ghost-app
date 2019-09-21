@@ -49,16 +49,16 @@ const app = new Vue({
                       <div class='ghost'>
                         <div class='ghost__body'>
                           <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
-                            <img :src="'./img/hat/' + hat.choice + '.png'">
+                            <img :src="'./img/hat/' + hat.choice + '.png'" alt="ghost hat" draggable='false'>
                           </div>
-                          <div class='ghost__head' :class="'ghost__head--' + head.choice">
-                            <img :src="'./img/head/' + head.choice + '.png'">
+                          <div class='ghost__head' :class="'ghost__head--' + head.choice" >
+                            <img :src="'./img/head/' + head.choice + '.png'" alt='ghost head' draggable='false'>
                           </div>
                           <div class='ghost__sheet' :class="'ghost__sheet--' + sheet.choice">
-                            <img :src="'./img/sheet/' + sheet.choice + '.png'">
+                            <img :src="'./img/sheet/' + sheet.choice + '.png'" alt='ghost sheet' draggable='false'>
                           </div>
                           <div v-if='shoes.choice !== 0' class='ghost__shoes' :class="'ghost__shoes--' + shoes.choice">
-                            <img :src="'./img/shoes/' + shoes.choice + '.png'">
+                            <img :src="'./img/shoes/' + shoes.choice + '.png'" draggable='false'>
                           </div>
                         </div>
                       </div>

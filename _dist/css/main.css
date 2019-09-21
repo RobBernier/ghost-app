@@ -489,6 +489,12 @@ p {
           animation-direction: alternate;
 }
 
+@media screen and (min-width: 1024px) {
+  .ghost {
+    width: 35vh;
+  }
+}
+
 .ghost__body {
   height: 100%;
 }
@@ -846,6 +852,8 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 70vw;
+  max-width: 600px;
   -webkit-animation-duration: 0.75s;
           animation-duration: 0.75s;
   -webkit-animation-name: shake;
@@ -943,6 +951,8 @@ p {
 }
 
 .app__bottom {
+  position: absolute;
+  bottom: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -985,8 +995,6 @@ p {
 }
 
 .app.js-firstvisit .app__bottom {
-  position: relative;
-  top: 30px;
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -1003,10 +1011,6 @@ p {
 .app.js-show .app__top, .app.js-show .app__bottom,
 .app.js-show .app .about__button {
   opacity: 1;
-}
-
-.app.js-show .app__bottom {
-  top: 0;
 }
 
 .app.js-show .control__left {
@@ -1091,7 +1095,7 @@ p {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-color: #ffffff;
+  background-color: #f63f11;
   -webkit-transition: opacity 0.3s ease, z-index 0s 0.3s;
   -o-transition: opacity 0.3s ease, z-index 0s 0.3s;
   transition: opacity 0.3s ease, z-index 0s 0.3s;
@@ -1135,6 +1139,15 @@ p {
 }
 
 .about__header {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */
   text-align: center;
   margin: 0 0 1.2em;
 }
@@ -1149,7 +1162,7 @@ p {
   width: 100px;
   padding: 15px;
   border-radius: 10px;
-  background-color: #0e45db;
+  background-color: #f63493;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
@@ -1159,7 +1172,7 @@ p {
 }
 
 .about__donate a:hover {
-  background-color: #2156e9;
+  background-color: #cc2877;
 }
 
 .about-slider {

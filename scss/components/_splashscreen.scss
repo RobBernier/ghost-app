@@ -23,6 +23,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 70vw;
+    max-width: 600px;
     animation-duration: 0.75s;
     animation-name: shake;
     animation-timing-function: ease-in-out;
