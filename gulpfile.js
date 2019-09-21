@@ -38,7 +38,7 @@ function img() {
     .pipe(image({
       optipng: true,
     }))
-    .pipe(gulp.dest('./public/img'))
+    .pipe(gulp.dest('./_dist/img'))
 }
 
 // CSS development task
@@ -57,7 +57,7 @@ function css() {
       ]),
     )
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./public/css/'))
+    .pipe(gulp.dest('./_dist/css/'))
     // .pipe(browsersync.stream());
 }
 
@@ -66,7 +66,7 @@ function js() {
     .src(['./js/**/*.js'])
     .pipe(plumber())
     .pipe(babel())
-    .pipe(gulp.dest('./public/js-compiled/'))
+    .pipe(gulp.dest('./_dist/js-compiled/'))
     // .pipe(browsersync.stream());
 }
 
