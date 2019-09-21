@@ -1,5 +1,6 @@
 .app {
   position: relative;
+  overflow: hidden;
 
   &__inner {
     display: flex;
@@ -35,6 +36,11 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    animation-duration: 5s;
+    animation-name: bgshake;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
   &.js-firstvisit {
@@ -87,5 +93,17 @@
         right: 0;
       }
     }
+  }
+}
+
+
+
+@keyframes bgshake {
+  from {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  to {
+    transform: scale(1.2) rotate(-2deg);
   }
 }

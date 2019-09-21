@@ -886,6 +886,7 @@ p {
 
 .app {
   position: relative;
+  overflow: hidden;
 }
 
 .app__inner {
@@ -963,6 +964,16 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   z-index: -1;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: bgshake;
+          animation-name: bgshake;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
 }
 
 .app.js-firstvisit .app__top,
@@ -1006,6 +1017,28 @@ p {
 .app.js-show .control__right {
   opacity: 1;
   right: 0;
+}
+
+@-webkit-keyframes bgshake {
+  from {
+    -webkit-transform: scale(1.1) rotate(2deg);
+            transform: scale(1.1) rotate(2deg);
+  }
+  to {
+    -webkit-transform: scale(1.2) rotate(-2deg);
+            transform: scale(1.2) rotate(-2deg);
+  }
+}
+
+@keyframes bgshake {
+  from {
+    -webkit-transform: scale(1.1) rotate(2deg);
+            transform: scale(1.1) rotate(2deg);
+  }
+  to {
+    -webkit-transform: scale(1.2) rotate(-2deg);
+            transform: scale(1.2) rotate(-2deg);
+  }
 }
 
 .ghost-container {
