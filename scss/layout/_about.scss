@@ -51,13 +51,6 @@
     text-align: justify;
   }
 
-  &__img {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto 2em;
-  }
-
   &__donate {
     a {
       display: block;
@@ -75,5 +68,11 @@
         background-color: $color-blue2;
       }
     }
+  }
+
+  // About slick carousel
+  &-slider {
+    overflow: hidden;
+    margin: 0 auto 2em;
   }
 }

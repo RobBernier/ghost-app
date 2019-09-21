@@ -10,11 +10,12 @@ const app = new Vue({
   template: `<div class='app'>
               <div class='splashscreen'>
                 <div class='splashscreen__inner'>
-                  <h1>
+                  <h1 class='splashscreen__header'>
                     <span class='title__krista'>Krista Perry's</span>
                     <span class='title__appname'>Ghost App!</span>
                   </h1>
                 </div>
+                <img class='splashscreen__logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
               </div>
                 <div class='app__inner'>
                   <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'><span>About This App</span></button>
@@ -22,7 +23,10 @@ const app = new Vue({
                     <div class='about__inner'>
                       <div class='about__content'>
                         <h2 class='about__header'>About Ghost Machine</h2>
-                        <img class='about__img' src='./img/about/bio.jpg' alt='Krista and Rob, in ghost attire'>
+                        <div class='about-slider'>
+                          <img class='about__img' src='./img/about/bio.jpg' alt='Krista and Rob, in ghost attire'>
+                          <img class='about__img' src='./img/about/bio2.jpg' alt='Krista and Rob, in ghost attire'>
+                        </div>
                         <div class='about__desc'>
                           <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
                         </div>
@@ -72,6 +76,9 @@ const app = new Vue({
                       <button v-on:click='randomize()'><span>Randomize</span></button>
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
+
+
+                    <img class='app__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
                   </div>
              </div>`,
   data: {
@@ -187,10 +194,10 @@ const app = new Vue({
       splash.classList.add('js-grow');
       setTimeout(() => {
         splash.classList.remove('js-grow');
-      }, 1000);
+      }, 5000);
       setTimeout(() => {
         app.classList.add('js-show');
-      }, 1300);
+      }, 5300);
     },
 
     aboutToggle(e) {
