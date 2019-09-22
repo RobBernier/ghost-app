@@ -62,6 +62,14 @@ const app = new Vue({
                           </div>
                         </div>
                       </div>
+                      <div class='ghost-print'>
+                        <img class='ghost-print__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
+
+                        <div class='ghost-print__logo'>
+                          <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
+                          <p class='hashtag'>#kpghostmachine</p>
+                        </div>
+                      </div>
                     </div>
 
                     <div class='control__right'>
@@ -76,7 +84,6 @@ const app = new Vue({
                       <button v-on:click='randomize()'><span>Randomize</span></button>
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
-
 
                     <img class='app__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
                   </div>
@@ -182,8 +189,13 @@ const app = new Vue({
     },
 
     print() {
-      domtoimage.toBlob(document.getElementsByClassName('ghost-container')[0]).then(function (blob) {
-        window.saveAs(blob, 'ghost.png');
+      const $ghostContainer = document.querySelector(".ghost-container");
+      $ghostContainer.classList.add('js-print');
+      html2canvas($ghostContainer).then(canvas => {
+        canvas.toBlob(function (blob) {
+          saveAs(blob, 'ghost.png');
+          $ghostContainer.classList.remove('js-print');
+        });
       });
     },
 

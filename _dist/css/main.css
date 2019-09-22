@@ -1180,4 +1180,77 @@ p {
   margin: 0 auto 2em;
 }
 
+.ghost-print {
+  display: none;
+  z-index: -1;
+}
+
+.ghost-print__logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ghost-print__logo img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
+}
+
+.ghost-print__logo .hashtag {
+  color: #500f12;
+  font-size: 12px;
+}
+
+.ghost-print__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+.ghost-container.js-print {
+  position: relative;
+  -webkit-box-flex: 0 !important;
+  -webkit-flex: 0 0 500px !important;
+     -moz-box-flex: 0 !important;
+      -ms-flex: 0 0 500px !important;
+          flex: 0 0 500px !important;
+  width: 500px !important;
+  height: 500px !important;
+  overflow: visible;
+}
+
+.ghost-container.js-print .ghost-print {
+  display: block;
+}
+
+.ghost-container.js-print .ghost {
+  -webkit-animation-name: none;
+          animation-name: none;
+  width: 200px !important;
+  top: 0 !important;
+}
+
 /*# sourceMappingURL=maps/main.css.map */
