@@ -489,6 +489,12 @@ p {
           animation-direction: alternate;
 }
 
+@media screen and (min-width: 1024px) {
+  .ghost {
+    width: 35vh;
+  }
+}
+
 .ghost__body {
   height: 100%;
 }
@@ -846,6 +852,8 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 70vw;
+  max-width: 600px;
   -webkit-animation-duration: 0.75s;
           animation-duration: 0.75s;
   -webkit-animation-name: shake;
@@ -887,6 +895,23 @@ p {
 .app {
   position: relative;
   overflow: hidden;
+}
+
+.app:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 100;
+  visibility: none;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease, visibility 0s 1s;
+  -o-transition: opacity 1s ease, visibility 0s 1s;
+  transition: opacity 1s ease, visibility 0s 1s;
 }
 
 .app__inner {
@@ -943,6 +968,8 @@ p {
 }
 
 .app__bottom {
+  position: absolute;
+  bottom: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -985,8 +1012,6 @@ p {
 }
 
 .app.js-firstvisit .app__bottom {
-  position: relative;
-  top: 30px;
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -1005,10 +1030,6 @@ p {
   opacity: 1;
 }
 
-.app.js-show .app__bottom {
-  top: 0;
-}
-
 .app.js-show .control__left {
   opacity: 1;
   left: 0;
@@ -1017,6 +1038,14 @@ p {
 .app.js-show .control__right {
   opacity: 1;
   right: 0;
+}
+
+.app.js-flash:after {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 0s ease;
+  -o-transition: opacity 0s ease;
+  transition: opacity 0s ease;
 }
 
 @-webkit-keyframes bgshake {
@@ -1091,7 +1120,7 @@ p {
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-color: #ffffff;
+  background-color: #f63f11;
   -webkit-transition: opacity 0.3s ease, z-index 0s 0.3s;
   -o-transition: opacity 0.3s ease, z-index 0s 0.3s;
   transition: opacity 0.3s ease, z-index 0s 0.3s;
@@ -1135,6 +1164,15 @@ p {
 }
 
 .about__header {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */
   text-align: center;
   margin: 0 0 1.2em;
 }
@@ -1149,7 +1187,7 @@ p {
   width: 100px;
   padding: 15px;
   border-radius: 10px;
-  background-color: #0e45db;
+  background-color: #f63493;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
@@ -1159,12 +1197,85 @@ p {
 }
 
 .about__donate a:hover {
-  background-color: #2156e9;
+  background-color: #cc2877;
 }
 
 .about-slider {
   overflow: hidden;
   margin: 0 auto 2em;
+}
+
+.ghost-print {
+  display: none;
+  z-index: -1;
+}
+
+.ghost-print__logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ghost-print__logo img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
+}
+
+.ghost-print__logo .hashtag {
+  color: #500f12;
+  font-size: 12px;
+}
+
+.ghost-print__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+.ghost-container.js-print {
+  position: relative;
+  -webkit-box-flex: 0 !important;
+  -webkit-flex: 0 0 500px !important;
+     -moz-box-flex: 0 !important;
+      -ms-flex: 0 0 500px !important;
+          flex: 0 0 500px !important;
+  width: 500px !important;
+  height: 500px !important;
+  overflow: visible;
+}
+
+.ghost-container.js-print .ghost-print {
+  display: block;
+}
+
+.ghost-container.js-print .ghost {
+  -webkit-animation-name: none;
+          animation-name: none;
+  width: 200px !important;
+  top: 0 !important;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

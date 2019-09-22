@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-color: $color-white;
+  background-color: $color-orange;
   transition: opacity 0.3s ease, z-index 0s 0.3s;
   z-index: -1;
 
@@ -43,6 +43,7 @@
   }
 
   &__header {
+    @include visually-hidden;
     text-align: center;
     margin: 0 0 1.2em;
   }
@@ -58,14 +59,14 @@
       width: 100px;
       padding: 15px;
       border-radius: 10px;
-      background-color: $color-blue;
+      background-color: $color-pink;
       color: $color-white;
       text-align: center;
       text-decoration: none;
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: $color-blue2;
+        background-color: $color-pink2;
       }
     }
   }

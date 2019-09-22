@@ -49,17 +49,25 @@ const app = new Vue({
                       <div class='ghost'>
                         <div class='ghost__body'>
                           <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
-                            <img :src="'./img/hat/' + hat.choice + '.png'">
+                            <img :src="'./img/hat/' + hat.choice + '.png'" alt="ghost hat" draggable='false'>
                           </div>
-                          <div class='ghost__head' :class="'ghost__head--' + head.choice">
-                            <img :src="'./img/head/' + head.choice + '.png'">
+                          <div class='ghost__head' :class="'ghost__head--' + head.choice" >
+                            <img :src="'./img/head/' + head.choice + '.png'" alt='ghost head' draggable='false'>
                           </div>
                           <div class='ghost__sheet' :class="'ghost__sheet--' + sheet.choice">
-                            <img :src="'./img/sheet/' + sheet.choice + '.png'">
+                            <img :src="'./img/sheet/' + sheet.choice + '.png'" alt='ghost sheet' draggable='false'>
                           </div>
                           <div v-if='shoes.choice !== 0' class='ghost__shoes' :class="'ghost__shoes--' + shoes.choice">
-                            <img :src="'./img/shoes/' + shoes.choice + '.png'">
+                            <img :src="'./img/shoes/' + shoes.choice + '.png'" draggable='false'>
                           </div>
+                        </div>
+                      </div>
+                      <div class='ghost-print'>
+                        <img class='ghost-print__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
+
+                        <div class='ghost-print__logo'>
+                          <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
+                          <p class='hashtag'>#kpghostmachine</p>
                         </div>
                       </div>
                     </div>
@@ -76,7 +84,6 @@ const app = new Vue({
                       <button v-on:click='randomize()'><span>Randomize</span></button>
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
-
 
                     <img class='app__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
                   </div>
@@ -182,8 +189,18 @@ const app = new Vue({
     },
 
     print() {
-      domtoimage.toBlob(document.getElementsByClassName('ghost-container')[0]).then(function (blob) {
-        window.saveAs(blob, 'ghost.png');
+      const $ghostContainer = document.querySelector(".ghost-container");
+      const $app = document.querySelector(".app");
+      window.devicePixelRatio = 2;
+      $ghostContainer.classList.add('js-print');
+      $app.classList.add('js-flash');
+      html2canvas($ghostContainer).then(canvas => {
+        canvas.toBlob(function (blob) {
+          saveAs(blob, 'ghost.png');
+          $ghostContainer.classList.remove('js-print');
+          $app.classList.remove('js-flash');
+          window.devicePixelRatio = 1;
+        });
       });
     },
 

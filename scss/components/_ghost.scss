@@ -9,6 +9,10 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
+  @media screen and (min-width: $break-large) {
+    width: 35vh;
+  }
+
   &__body {
     height: 100%;
   }
@@ -41,13 +45,13 @@
       width: 26%;
     }
 
-    &--5 {    
+    &--5 {
       top: 1%;
       left: 17%;
       width: 60%;
     }
 
-    &--6 {    
+    &--6 {
       top: 0;
       left: 33%;
       width: 60%;
@@ -57,7 +61,7 @@
   &__head {
     position: absolute;
     z-index: 1;
-    
+
     &--0 {
       top: 11%;
       left: 39%;
@@ -75,80 +79,80 @@
       left: 36%;
       width: 27%;
     }
-    
+
     &--3 {
       top: 11%;
       left: 33%;
-      width: 26%;  
+      width: 26%;
     }
-    
+
     &--4 {
       top: 10.5%;
       left: 36%;
       width: 19%;
     }
-    
+
     &--5 {
       top: 11%;
       left: 38%;
       width: 19%;
     }
-    
+
     &--6 {
       top: 10%;
       left: 39%;
       width: 15%;
     }
-    
-    &--7 {    
+
+    &--7 {
       top: 10%;
       left: 40%;
       width: 11%;
     }
-    
+
     &--8 {
       top: 11%;
       left: 38%;
       width: 17%;
     }
-    
+
     &--9 {
       top: 12%;
       left: 38%;
       width: 16%;
     }
-    
-    &--10 {    
+
+    &--10 {
       top: 11%;
       left: 40%;
       width: 13%;
     }
-    
-    &--11 {    
+
+    &--11 {
       top: 8%;
       left: 37%;
       width: 20%;
     }
-    
-    &--12 {    
+
+    &--12 {
       top: 8%;
       left: 39%;
-      width: 16%;  
+      width: 16%;
     }
-    
-    &--13 {    
+
+    &--13 {
       top: 8%;
       left: 39%;
       width: 18%;
     }
-    
-    &--14 {    
+
+    &--14 {
       top: 11%;
       left: 39%;
       width: 14%;
     }
-    
-    &--15 {      
+
+    &--15 {
       top: 8%;
       left: 39%;
       width: 16%;
