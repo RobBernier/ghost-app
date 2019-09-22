@@ -10,13 +10,13 @@ const babel = require('gulp-babel');
 const image = require('gulp-image');
 
 // BrowserSync
-// function browserSync(done) {
-//   browsersync.init({
-//     port: 3000,
-//     proxy: 'ghost.test'
-//   });
-//   done();
-// }
+function browserSync(done) {
+  browsersync.init({
+    port: 3000,
+    proxy: 'ghost.test'
+  });
+  done();
+}
 
 // Title used for system notifications
 const notifyInfo = {
@@ -77,7 +77,7 @@ function watchFiles() {
 }
 
 // Watch files during development
-const watch = gulp.parallel(watchFiles /*, browserSync */);
+const watch = gulp.parallel(watchFiles, browserSync);
 
 // Export tasks
 exports.css = css;

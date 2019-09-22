@@ -190,11 +190,16 @@ const app = new Vue({
 
     print() {
       const $ghostContainer = document.querySelector(".ghost-container");
+      const $app = document.querySelector(".app");
+      window.devicePixelRatio = 2;
       $ghostContainer.classList.add('js-print');
+      $app.classList.add('js-flash');
       html2canvas($ghostContainer).then(canvas => {
         canvas.toBlob(function (blob) {
           saveAs(blob, 'ghost.png');
           $ghostContainer.classList.remove('js-print');
+          $app.classList.remove('js-flash');
+          window.devicePixelRatio = 1;
         });
       });
     },
