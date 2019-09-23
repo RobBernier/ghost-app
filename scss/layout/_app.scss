@@ -14,7 +14,7 @@
     visibility: none;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 1s ease, visibility 0s 1s;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
   }
 
   &__inner {

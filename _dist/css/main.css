@@ -909,9 +909,9 @@ p {
   visibility: none;
   pointer-events: none;
   opacity: 0;
-  -webkit-transition: opacity 1s ease, visibility 0s 1s;
-  -o-transition: opacity 1s ease, visibility 0s 1s;
-  transition: opacity 1s ease, visibility 0s 1s;
+  -webkit-transition: opacity 0.5s ease, visibility 0s 0.5s;
+  -o-transition: opacity 0.5s ease, visibility 0s 0.5s;
+  transition: opacity 0.5s ease, visibility 0s 0.5s;
 }
 
 .app__inner {
@@ -1276,6 +1276,60 @@ p {
           animation-name: none;
   width: 200px !important;
   top: 0 !important;
+}
+
+.countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 99;
+}
+
+.countdown .timer--1,
+.countdown .timer--2,
+.countdown .timer--3 {
+  display: none;
+}
+
+.countdown .timer--1 p,
+.countdown .timer--2 p,
+.countdown .timer--3 p {
+  font-size: 20px;
+}
+
+.countdown.countdown--1 .timer--1 {
+  display: block;
+}
+
+.countdown.countdown--2 .timer--2 {
+  display: block;
+}
+
+.countdown.countdown--3 .timer--3 {
+  display: block;
+}
+
+.app.js-printing .countdown {
+  visibility: visible;
 }
 
 /*# sourceMappingURL=maps/main.css.map */
