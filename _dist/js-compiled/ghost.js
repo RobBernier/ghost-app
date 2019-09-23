@@ -86,10 +86,22 @@ const app = new Vue({
                     </div>
 
                     <img class='app__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
+                    <div class='countdown' :class="'countdown--' + printCount">
+                      <div class='timer--3'>
+                        <p>3</p>
+                      </div>
+                      <div class='timer--2'>
+                        <p>2</p>
+                      </div>
+                      <div class='timer--1'>
+                        <p>1</p>
+                      </div>
+                    </div>
                   </div>
              </div>`,
   data: {
     visited: false,
+    printCount: 3,
     results: [],
     hat: {
       filename: 'hat',
@@ -190,18 +202,31 @@ const app = new Vue({
 
     print() {
       const $ghostContainer = document.querySelector(".ghost-container");
+      const $printCounter = document.querySelector(".countdown");
       const $app = document.querySelector(".app");
-      window.devicePixelRatio = 2;
-      $ghostContainer.classList.add('js-print');
-      $app.classList.add('js-flash');
-      html2canvas($ghostContainer).then(canvas => {
-        canvas.toBlob(function (blob) {
-          saveAs(blob, 'ghost.png');
-          $ghostContainer.classList.remove('js-print');
-          $app.classList.remove('js-flash');
-          window.devicePixelRatio = 1;
-        });
-      });
+      this.printCount = 3;
+      $app.classList.add('js-printing');
+      const timer = setInterval(() => {
+        if (this.printCount > 1) {
+          this.printCount--;
+        } else {
+          window.devicePixelRatio = 2;
+          $ghostContainer.classList.add('js-print');
+          $app.classList.remove('js-printing');
+          $app.classList.add('js-flash');
+          $printCounter.classList.remove('js-visible');
+          html2canvas($ghostContainer).then(canvas => {
+            canvas.toBlob(function (blob) {
+              saveAs(blob, 'ghost.png');
+              $ghostContainer.classList.remove('js-print');
+              $app.classList.remove('js-flash');
+              window.devicePixelRatio = 1;
+              this.printCount = 3;
+            });
+          });
+          clearInterval(timer);
+        }
+      }, 1000);
     },
 
     splashscreen() {
