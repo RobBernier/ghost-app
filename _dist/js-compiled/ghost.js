@@ -1,3 +1,8 @@
+/* global Vue */
+
+/* global VueResource */
+
+/* global VueRouter */
 Vue.use(VueResource);
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -129,7 +134,12 @@ const app = new Vue({
       loading: false
     }
   },
-  created: function created() {},
+  created: function created() {
+    // Check for Router param; if available, update filters
+    if (this.$route.query.hat) {
+      this.routerUpdateFilters();
+    }
+  },
   mounted: function () {
     // Splashscreen session logic
     if (!sessionStorage.getItem("visited")) {
@@ -139,10 +149,14 @@ const app = new Vue({
   },
   methods: {
     loadImage(obj, index) {
-      // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
+      const _this = this; // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
+
+
       if (index === 0 && (obj.filename === 'hat' || obj.filename === 'shoes')) {
         obj.choice = index;
         obj.loading = false;
+
+        _this.routerUpdate();
       } else {
         const newImg = new Image();
         newImg.src = `./img/${obj.filename}/${index}.png`;
@@ -150,6 +164,8 @@ const app = new Vue({
         newImg.onload = function () {
           obj.choice = index;
           obj.loading = false;
+
+          _this.routerUpdate();
         };
       }
     },
@@ -252,6 +268,24 @@ const app = new Vue({
         e.target.setAttribute('aria-expanded', 'false');
         $about.setAttribute('aria-hidden', 'true');
       }
+    },
+
+    routerUpdateFilters() {
+      this.hat.choice = this.$route.query.hat;
+      this.head.choice = this.$route.query.head;
+      this.sheet.choice = this.$route.query.sheet;
+      this.shoes.choice = this.$route.query.shoes;
+    },
+
+    routerUpdate() {
+      this.$router.push({
+        query: {
+          hat: this.hat.choice,
+          head: this.head.choice,
+          sheet: this.sheet.choice,
+          shoes: this.shoes.choice
+        }
+      });
     }
 
   }

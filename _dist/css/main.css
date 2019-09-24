@@ -504,6 +504,10 @@ p {
   z-index: 2;
 }
 
+.ghost__hat--0 {
+  display: none;
+}
+
 .ghost__hat--1 {
   top: -8%;
   left: 25%;
@@ -650,6 +654,10 @@ p {
 .ghost__shoes {
   position: absolute;
   z-index: 1;
+}
+
+.ghost__shoes--0 {
+  display: none;
 }
 
 .ghost__shoes--1 {
