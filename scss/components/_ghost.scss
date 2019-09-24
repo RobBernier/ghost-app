@@ -21,6 +21,10 @@
     position: absolute;
     z-index: 2;
 
+    &--0 {
+      display: none;
+    }
+
     &--1 {
       top: -8%;
       left: 25%;
@@ -168,6 +172,10 @@
   &__shoes {
     position: absolute;
     z-index: 1;
+
+    &--0 {
+      display: none;
+    }
 
     &--1 {
       bottom: 2%;
