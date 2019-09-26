@@ -22,7 +22,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
 
   &__top {
@@ -51,19 +52,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: -1;
     animation-duration: 5s;
     animation-name: bgshake;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &.js-firstvisit {
     .app {
-      &__top,
-      .about__button {
+      &__top {
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -72,6 +77,11 @@
         opacity: 0;
         transition: all 0.3s ease;
       }
+    }
+
+    .about__button {
+      opacity: 0;
+      transition: all 0.3s ease;
     }
 
     .control {
@@ -86,10 +96,13 @@
   &.js-show {
     .app {
       &__top,
-      &__bottom,
-      .about__button {
+      &__bottom {
         opacity: 1;
       }
+    }
+
+    .about__button {
+      opacity: 1;
     }
 
     .control {

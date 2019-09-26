@@ -476,7 +476,7 @@ p {
   position: relative;
   top: 0;
   left: 0;
-  width: 30vh;
+  width: 100%;
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
   -webkit-animation-name: hover;
@@ -489,7 +489,7 @@ p {
           animation-direction: alternate;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 450px) {
   .ghost {
     width: 35vh;
   }
@@ -945,7 +945,8 @@ p {
      -moz-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 .app__top {
@@ -996,8 +997,6 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   z-index: -1;
   -webkit-animation-duration: 5s;
           animation-duration: 5s;
@@ -1011,8 +1010,14 @@ p {
           animation-direction: alternate;
 }
 
-.app.js-firstvisit .app__top,
-.app.js-firstvisit .app .about__button {
+.app__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.app.js-firstvisit .app__top {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
@@ -1026,6 +1031,13 @@ p {
   transition: all 0.3s ease;
 }
 
+.app.js-firstvisit .about__button {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 .app.js-firstvisit .control__left, .app.js-firstvisit .control__right {
   opacity: 0;
   -webkit-transition: all 0.3s ease, 0.3s;
@@ -1033,8 +1045,11 @@ p {
   transition: all 0.3s ease, 0.3s;
 }
 
-.app.js-show .app__top, .app.js-show .app__bottom,
-.app.js-show .app .about__button {
+.app.js-show .app__top, .app.js-show .app__bottom {
+  opacity: 1;
+}
+
+.app.js-show .about__button {
   opacity: 1;
 }
 
@@ -1094,7 +1109,6 @@ p {
      -moz-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: calc(100vw - 60px);
   height: 100%;
   margin: 0 30px;
 }
@@ -1156,6 +1170,7 @@ p {
 
 .about__inner {
   padding: 0 20px;
+  width: calc(100% - 40px);
   max-width: 600px;
 }
 
@@ -1210,7 +1225,13 @@ p {
 
 .about-slider {
   overflow: hidden;
+  width: 80%;
   margin: 0 auto 2em;
+}
+
+.about-slider .slick-slide {
+  display: inline-block;
+  width: 80vw;
 }
 
 .ghost-print {

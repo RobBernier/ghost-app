@@ -11,4 +11,13 @@ $( document ).ready(() => {
     centerMode: true,
     fade: true,
   });
+
+  // Fix for iOS vh issues
+  function resizeViewport() {
+    $('html, body, .app__inner').css({minHeight: $(window).height()});
+  }
+
+  resizeViewport();
+  $(window).on('resize', resizeViewport);
 });
+

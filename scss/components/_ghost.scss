@@ -2,14 +2,14 @@
   position: relative;
   top: 0;
   left: 0;
-  width: 30vh;
+  width: 100%;
   animation-duration: 1.5s;
   animation-name: hover;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: 450px) {
     width: 35vh;
   }
 

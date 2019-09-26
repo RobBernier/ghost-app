@@ -31,6 +31,7 @@
 
   &__inner {
     padding: 0 20px;
+    width: calc(100% - 40px);
     max-width: 600px;
 
     @media screen and (min-width: $break-medium) {
@@ -74,6 +75,12 @@
   // About slick carousel
   &-slider {
     overflow: hidden;
+    width: 80%;
     margin: 0 auto 2em;
+
+    .slick-slide {
+      display: inline-block;
+      width: 80vw;
+    }
   }
 }
