@@ -33,7 +33,7 @@ const app = new Vue({
                           <img class='about__img' src='./img/about/bio2.jpg' alt='Krista and Rob, in ghost attire'>
                         </div>
                         <div class='about__desc'>
-                          <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint beatae odit magnam dolorem repudiandae ab, excepturi laboriosam voluptates fugit, quas, eveniet adipisci quibusdam tempora suscipit eos ad et aliquam similique! A sentence that should give you incentive to donate.</p>
+                          <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, A sentence that should give you incentive to donate.</p>
                         </div>
                         <div class='about__donate'>
                           <p>All donations go to keeping this site alive and putting food in our bellies.</p>
@@ -68,7 +68,7 @@ const app = new Vue({
                         </div>
                       </div>
                       <div class='ghost-print'>
-                        <img class='ghost-print__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
+                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.jpg' alt='ghost machine background'>
 
                         <div class='ghost-print__logo'>
                           <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
@@ -90,7 +90,10 @@ const app = new Vue({
                       <button v-on:click='print()'><span>Print</span></button>
                     </div>
 
-                    <img class='app__bg' src='./img/splashscreen/bg.png' alt='ghost machine background'>
+                    <picture class='app__bg'>
+                        <source srcset="./img/splashscreen/bg-lg.jpg" media="(min-width: 1025px)" />
+                        <img srcset='./img/splashscreen/bg.jpg' alt="ghost background" />
+                    </picture>
                     <div class='countdown' :class="'countdown--' + printCount">
                       <div class='timer--3'>
                         <p>3</p>
