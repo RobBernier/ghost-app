@@ -509,37 +509,157 @@ p {
 }
 
 .ghost__hat--1 {
-  top: -8%;
-  left: 25%;
-  width: 50%;
+  top: -9%;
+  left: 23%;
+  width: 52%;
 }
 
 .ghost__hat--2 {
-  top: -2%;
-  left: 33%;
-  width: 30%;
+  top: -4%;
+  left: 34%;
+  width: 29%;
 }
 
 .ghost__hat--3 {
-  top: 0;
+  top: -2%;
   left: 29%;
   width: 40%;
 }
 
 .ghost__hat--4 {
+  top: -23%;
+  left: 35.5%;
+  width: 25%;
+}
+
+.ghost__hat--5 {
+  top: 0%;
+  left: 17%;
+  width: 59%;
+}
+
+.ghost__hat--6 {
+  top: -2%;
+  left: 36%;
+  width: 50%;
+}
+
+.ghost__hat--7 {
+  top: -5%;
+  left: 28%;
+  width: 44%;
+}
+
+.ghost__hat--8 {
+  top: -7%;
+  left: 28%;
+  width: 38%;
+}
+
+.ghost__hat--9 {
+  top: 2%;
+  left: 27%;
+  width: 33%;
+}
+
+.ghost__hat--10 {
+  top: -6%;
+  left: 31%;
+  width: 36%;
+}
+
+.ghost__hat--11 {
+  top: -1%;
+  left: 29%;
+  width: 40%;
+}
+
+.ghost__hat--12 {
+  top: -19%;
+  left: 28%;
+  width: 43%;
+}
+
+.ghost__hat--13 {
+  top: -4%;
+  left: 19%;
+  width: 67%;
+}
+
+.ghost__hat--14 {
+  top: -9%;
+  left: 32%;
+  width: 33%;
+}
+
+.ghost__hat--15 {
+  top: 0%;
+  left: 33%;
+  width: 31%;
+}
+
+.ghost__hat--16 {
+  top: -5%;
+  left: 26%;
+  width: 45%;
+}
+
+.ghost__hat--17 {
+  top: -4%;
+  left: 24%;
+  width: 49%;
+}
+
+.ghost__hat--18 {
+  top: -3%;
+  left: 35%;
+  width: 27%;
+}
+
+.ghost__hat--19 {
+  top: -4%;
+  left: 30%;
+  width: 37%;
+}
+
+.ghost__hat--20 {
+  top: -8%;
+  left: 25%;
+  width: 50%;
+}
+
+.ghost__hat--21 {
+  top: -8%;
+  left: 25%;
+  width: 50%;
+}
+
+.ghost__hat--22 {
+  top: -2%;
+  left: 33%;
+  width: 30%;
+}
+
+.ghost__hat--23 {
+  top: 1%;
+  left: 29%;
+  width: 40%;
+}
+
+.ghost__hat--24 {
   top: -22%;
   left: 35%;
   width: 26%;
 }
 
-.ghost__hat--5 {
+.ghost__hat--25 {
   top: 1%;
   left: 17%;
   width: 60%;
 }
 
-.ghost__hat--6 {
-  top: 0;
+.ghost__hat--26 {
+  top: 1%;
   left: 33%;
   width: 60%;
 }
@@ -645,6 +765,72 @@ p {
   width: 16%;
 }
 
+.ghost__head--16 {
+  top: 10%;
+  left: 39%;
+  width: 15%;
+}
+
+.ghost__head--17 {
+  top: 10%;
+  left: 40%;
+  width: 11%;
+}
+
+.ghost__head--18 {
+  top: 11%;
+  left: 38%;
+  width: 17%;
+}
+
+.ghost__head--19 {
+  top: 12%;
+  left: 38%;
+  width: 16%;
+}
+
+.ghost__head--20 {
+  top: 11%;
+  left: 40%;
+  width: 13%;
+}
+
+.ghost__head--21 {
+  top: 10%;
+  left: 12%;
+  width: 44%;
+}
+
+.ghost__head--22 {
+  top: 9%;
+  left: 36%;
+  width: 27%;
+}
+
+.ghost__head--23 {
+  top: 0%;
+  left: 28%;
+  width: 41%;
+}
+
+.ghost__head--24 {
+  top: 10.5%;
+  left: 36%;
+  width: 19%;
+}
+
+.ghost__head--25 {
+  top: 11%;
+  left: 38%;
+  width: 19%;
+}
+
+.ghost__head--26 {
+  top: 10%;
+  left: 39%;
+  width: 15%;
+}
+
 .ghost__sheet {
   background-size: contain;
   background-position: center;
@@ -673,9 +859,81 @@ p {
 }
 
 .ghost__shoes--3 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--4 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--5 {
   bottom: 2%;
   left: 58%;
-  width: 24%;
+  width: 29%;
+}
+
+.ghost__shoes--6 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--7 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--8 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--9 {
+  bottom: 2%;
+  left: 58%;
+  width: 29%;
+}
+
+.ghost__shoes--10 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--11 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--12 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--13 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--14 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
+}
+
+.ghost__shoes--15 {
+  bottom: 1%;
+  left: 50%;
+  width: 35%;
 }
 
 .ghost img {

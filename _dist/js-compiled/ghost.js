@@ -114,26 +114,26 @@ const app = new Vue({
     hat: {
       filename: 'hat',
       choice: 0,
-      optionct: 7,
+      optionct: 27,
       loading: false
     },
     head: {
       filename: 'head',
       choice: 0,
-      optionct: 16,
+      optionct: 26,
       // total - 1
       loading: false
     },
     sheet: {
       filename: 'sheet',
       choice: 0,
-      optionct: 11,
+      optionct: 21,
       loading: false
     },
     shoes: {
       filename: 'shoes',
       choice: 0,
-      optionct: 3,
+      optionct: 15,
       loading: false
     }
   },
@@ -236,7 +236,10 @@ const app = new Vue({
           $printCounter.classList.remove('js-visible');
           html2canvas($ghostContainer).then(canvas => {
             canvas.toBlob(function (blob) {
-              saveAs(blob, 'ghost.png');
+              const file = new Blob([blob], {
+                type: 'image/png'
+              });
+              saveAs(file, 'ghost.png');
               $ghostContainer.classList.remove('js-print');
               $app.classList.remove('js-flash');
               window.devicePixelRatio = 1;
