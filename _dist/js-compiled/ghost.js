@@ -114,13 +114,13 @@ const app = new Vue({
     hat: {
       filename: 'hat',
       choice: 0,
-      optionct: 27,
+      optionct: 26,
       loading: false
     },
     head: {
       filename: 'head',
       choice: 0,
-      optionct: 26,
+      optionct: 25,
       // total - 1
       loading: false
     },

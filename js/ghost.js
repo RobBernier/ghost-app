@@ -121,7 +121,7 @@ const app = new Vue({
     head: {
       filename: 'head',
       choice: 0,
-      optionct: 26, // total - 1
+      optionct: 25, // total - 1
       loading: false,
     },
     sheet: {
