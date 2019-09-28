@@ -347,7 +347,7 @@ template {
 
 html,
 body {
-  font-family: "Patua One", cursive;
+  font-family: "Grenze", serif;
 }
 
 body {
@@ -706,9 +706,9 @@ p {
 }
 
 .ghost__head--6 {
-  top: 8.5%;
+  top: 7.5%;
   left: 39%;
-  width: 11%;
+  width: 13%;
 }
 
 .ghost__head--7 {
@@ -724,9 +724,9 @@ p {
 }
 
 .ghost__head--9 {
-  top: 9.5%;
-  left: 39.3%;
-  width: 12%;
+  top: 8%;
+  left: 38.3%;
+  width: 14%;
 }
 
 .ghost__head--10 {
@@ -742,20 +742,20 @@ p {
 }
 
 .ghost__head--12 {
-  top: 8%;
+  top: 7%;
   left: 39%;
-  width: 10.5%;
+  width: 12.5%;
 }
 
 .ghost__head--13 {
   top: 7%;
   left: 39%;
-  width: 13%;
+  width: 15%;
 }
 
 .ghost__head--14 {
-  top: 8.5%;
-  left: 38.5%;
+  top: 7.5%;
+  left: 39.5%;
   width: 12%;
 }
 
@@ -804,7 +804,7 @@ p {
 .ghost__head--22 {
   top: 7%;
   left: 38%;
-  width: 15%;
+  width: 16%;
 }
 
 .ghost__head--23 {
@@ -821,8 +821,8 @@ p {
 
 .ghost__head--25 {
   top: -4%;
-  left: 6%;
-  width: 43%;
+  left: 5%;
+  width: 45%;
 }
 
 .ghost__sheet {
