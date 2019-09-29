@@ -7,12 +7,12 @@
     justify-content: space-around;
 
     button {
+      @include buttonAnim;
       position: relative;
       width: 40px;
       height: 40px;
       border: 0;
       background: transparent;
-      transition: transform 0.3s ease;
 
       &:after {
         content: '';
@@ -39,6 +39,7 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transition: opacity 0.3s ease;
       }
 
       @keyframes spin {
@@ -46,11 +47,11 @@
         to {transform:rotate(360deg);}
       }
 
-      &:hover {
-        transform: scale(1.2);
-      }
-
       &.jsloading {
+        img {
+          opacity: 0;
+        }
+
         &:after {
           opacity: 1;
         }
@@ -69,17 +70,13 @@
   }
 
   &__randomize {
+    @include buttonAnim;
     width: 60px;
     height: 60px;
     padding: 0;
     border: 0;
     background: transparent;
-    transition: transform 0.3s ease;
     margin-right: 40px;
-
-    &:hover {
-      transform: scale(1.2);
-    }
 
     img {
       width: 100%;
@@ -93,16 +90,12 @@
   }
 
   &__print {
+    @include buttonAnim;
     width: 60px;
     height: 60px;
     padding: 0;
     border: 0;
     background: transparent;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.2);
-    }
 
     img {
       width: 100%;

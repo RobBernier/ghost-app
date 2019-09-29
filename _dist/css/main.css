@@ -356,6 +356,10 @@ body {
      object-fit: cover;
 }
 
+:focus {
+  outline: 0;
+}
+
 button {
   cursor: pointer;
   padding: 0.5em;
@@ -986,16 +990,28 @@ p {
 }
 
 .control__left button, .control__right button {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 0;
-  background: transparent;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+}
+
+.control__left button:hover, .control__right button:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.control__left button:active, .control__right button:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .control__left button:after, .control__right button:after {
@@ -1030,6 +1046,9 @@ p {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 @-webkit-keyframes spin {
@@ -1054,10 +1073,8 @@ p {
   }
 }
 
-.control__left button:hover, .control__right button:hover {
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
+.control__left button.jsloading img, .control__right button.jsloading img {
+  opacity: 0;
 }
 
 .control__left button.jsloading:after, .control__right button.jsloading:after {
@@ -1083,16 +1100,16 @@ p {
 }
 
 .control__randomize {
-  width: 60px;
-  height: 60px;
-  padding: 0;
-  border: 0;
-  background: transparent;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   margin-right: 40px;
 }
 
@@ -1100,6 +1117,12 @@ p {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.control__randomize:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .control__randomize img {
@@ -1122,22 +1145,28 @@ p {
 }
 
 .control__print {
-  width: 60px;
-  height: 60px;
-  padding: 0;
-  border: 0;
-  background: transparent;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .control__print:hover {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.control__print:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .control__print img {
@@ -1536,6 +1565,11 @@ p {
 }
 
 .about__button {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
   position: absolute;
   top: 0;
   right: 0;
@@ -1545,17 +1579,18 @@ p {
   z-index: 6;
   margin: 30px 30px 0 0;
   padding: 0;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  -o-transition: transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .about__button:hover {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.about__button:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .about__button[aria-expanded='false'] .open {
@@ -1641,23 +1676,29 @@ p {
 }
 
 .about__donate a {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
   display: block;
   margin: 0 auto;
   width: 170px;
   border-radius: 10px;
   text-align: center;
   text-decoration: none;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  -o-transition: transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .about__donate a:hover {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.about__donate a:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .about__donate a img {
