@@ -67,6 +67,53 @@
       transform: rotate(180deg);
     }
   }
+
+  &__randomize {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    transition: transform 0.3s ease;
+    margin-right: 40px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    span {
+      @include visually-hidden;
+    }
+  }
+
+  &__print {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    span {
+      @include visually-hidden;
+    }
+  }
 }
 
 .app.js-firstvisit {
