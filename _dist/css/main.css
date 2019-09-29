@@ -616,9 +616,9 @@ p {
 }
 
 .ghost__hat--16 {
-  top: -7%;
-  left: 29%;
-  width: 38%;
+  top: -7.5%;
+  left: 28%;
+  width: 40%;
 }
 
 .ghost__hat--17 {
@@ -693,9 +693,9 @@ p {
 }
 
 .ghost__head--1 {
-  top: 8%;
-  left: 20.5%;
-  width: 31%;
+  top: 7%;
+  left: 11.5%;
+  width: 39%;
 }
 
 .ghost__head--2 {
@@ -706,7 +706,7 @@ p {
 
 .ghost__head--3 {
   top: 10%;
-  left: 33%;
+  left: 35.5%;
   width: 22%;
 }
 
@@ -723,9 +723,9 @@ p {
 }
 
 .ghost__head--6 {
-  top: 7.5%;
-  left: 39%;
-  width: 13%;
+  top: -9%;
+  left: 5%;
+  width: 45%;
 }
 
 .ghost__head--7 {
@@ -837,9 +837,9 @@ p {
 }
 
 .ghost__head--25 {
-  top: -4%;
-  left: 5%;
-  width: 45%;
+  top: 7.5%;
+  left: 39%;
+  width: 13%;
 }
 
 .ghost__sheet {
