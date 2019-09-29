@@ -19,6 +19,7 @@
   }
 
   &__button {
+    @include buttonAnim;
     position: absolute;
     top:0;
     right: 0;
@@ -28,11 +29,6 @@
     z-index: 6;
     margin: 30px 30px 0 0;
     padding: 0;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.2);
-    }
 
     &[aria-expanded='false'] {
       .open {
@@ -99,17 +95,13 @@
     }
 
     a {
+      @include buttonAnim;
       display: block;
       margin: 0 auto;
       width: 170px;
       border-radius: 10px;
       text-align: center;
       text-decoration: none;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.2);
-      }
 
       img {
         width: 100%;

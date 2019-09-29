@@ -8,6 +8,10 @@ body {
   object-fit: cover;
 }
 
+:focus {
+  outline: 0;
+}
+
 button {
   cursor: pointer;
   padding: 0.5em;
