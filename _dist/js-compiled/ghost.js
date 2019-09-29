@@ -271,7 +271,7 @@ const app = new Vue({
           if (this.printCount > 1) {
             this.printCount--;
           } else {
-            window.devicePixelRatio = 2;
+            window.devicePixelRatio = 3;
             $ghostContainer.classList.add('js-print');
             $app.classList.remove('js-printing');
             $app.classList.add('js-flash');
@@ -280,9 +280,9 @@ const app = new Vue({
             html2canvas($ghostContainer).then(canvas => {
               canvas.toBlob(function (blob) {
                 const file = new Blob([blob], {
-                  type: 'image/png'
+                  type: 'image/jpg'
                 });
-                saveAs(file, 'ghost.png');
+                saveAs(file, 'ghost.jpg');
                 $ghostContainer.classList.remove('js-print');
                 $app.classList.remove('js-flash');
                 window.devicePixelRatio = 1;
