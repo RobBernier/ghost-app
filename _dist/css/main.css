@@ -1235,9 +1235,9 @@ p {
   top: 50%;
   left: 50%;
   width: 70vw;
-  max-width: 600px;
-  -webkit-animation-duration: 0.75s;
-          animation-duration: 0.75s;
+  max-width: 470px;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-name: shake;
           animation-name: shake;
   -webkit-animation-timing-function: ease-in-out;
@@ -1254,23 +1254,23 @@ p {
 
 @-webkit-keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) rotate(10deg);
-            transform: translate(-50%, -50%) rotate(10deg);
+    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) rotate(-10deg);
-            transform: translate(-50%, -50%) rotate(-10deg);
+    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
 @keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) rotate(10deg);
-            transform: translate(-50%, -50%) rotate(10deg);
+    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) rotate(-10deg);
-            transform: translate(-50%, -50%) rotate(-10deg);
+    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
