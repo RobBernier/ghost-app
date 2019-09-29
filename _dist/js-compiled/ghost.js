@@ -44,10 +44,22 @@ const app = new Vue({
                   </div>
                   <div class='app__top'>
                     <div class='control__left'>
-                      <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'><span>Hat-</span></button>
-                      <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, false)'><span>Head-</span></button>
-                      <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, false)'><span>Sheet-</span></button>
-                      <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, false)'><span>Shoes-</span></button>
+                      <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'>
+                        <img src='./img/icons/arrow.png' alt='increment hat'>
+                        <span>Hat-</span>
+                      </button>
+                      <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, false)'>
+                        <img src='./img/icons/arrow.png' alt='increment head'>
+                        <span>Head-</span>
+                      </button>
+                      <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, false)'>
+                        <img src='./img/icons/arrow.png' alt='increment sheet'>
+                        <span>Sheet-</span>
+                      </button>
+                      <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, false)'>
+                        <img src='./img/icons/arrow.png' alt='increment shoes'>
+                        <span>Shoes-</span>
+                      </button>
                     </div>
 
                     <div class='ghost-container'>
@@ -78,10 +90,22 @@ const app = new Vue({
                     </div>
 
                     <div class='control__right'>
-                        <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, true)'><span>Hat+</span></button>
-                        <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, true)'><span>Head+</span></button>
-                        <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, true)'><span>Sheet+</span></button>
-                        <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, true)'><span>Shoes+</span></button>
+                        <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, true)'>
+                          <img src='./img/icons/arrow.png' alt='increment hat'>
+                          <span>Hat+</span>
+                        </button>
+                        <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, true)'>
+                          <img src='./img/icons/arrow.png' alt='increment head'>
+                          <span>Head+</span>
+                        </button>
+                        <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, true)'>
+                          <img src='./img/icons/arrow.png' alt='increment sheet'>
+                          <span>Sheet+</span>
+                        </button>
+                        <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, true)'>
+                          <img src='./img/icons/arrow.png' alt='increment arrow'>
+                          <span>Shoes+</span>
+                        </button>
                       </div>
                     </div>
 
@@ -95,14 +119,16 @@ const app = new Vue({
                         <img srcset='./img/splashscreen/bg.jpg' alt="ghost background" />
                     </picture>
                     <div class='countdown' :class="'countdown--' + printCount">
-                      <div class='timer--3'>
-                        <p>3</p>
-                      </div>
-                      <div class='timer--2'>
-                        <p>2</p>
-                      </div>
-                      <div class='timer--1'>
-                        <p>1</p>
+                      <div class='timer'>
+                        <div class='timer--3'>
+                          <img src='./img/countdown/3.png' alt='countdown number 3'>
+                        </div>
+                        <div class='timer--2'>
+                          <img src='./img/countdown/2.png' alt='countdown number 2'>
+                        </div>
+                        <div class='timer--1'>
+                          <img src='./img/countdown/1.png' alt='countdown number 1'>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -111,6 +137,7 @@ const app = new Vue({
     visited: false,
     printCount: 3,
     results: [],
+    printing: false,
     hat: {
       filename: 'hat',
       choice: 0,
@@ -220,35 +247,39 @@ const app = new Vue({
     },
 
     print() {
-      const $ghostContainer = document.querySelector(".ghost-container");
-      const $printCounter = document.querySelector(".countdown");
-      const $app = document.querySelector(".app");
-      this.printCount = 3;
-      $app.classList.add('js-printing');
-      const timer = setInterval(() => {
-        if (this.printCount > 1) {
-          this.printCount--;
-        } else {
-          window.devicePixelRatio = 2;
-          $ghostContainer.classList.add('js-print');
-          $app.classList.remove('js-printing');
-          $app.classList.add('js-flash');
-          $printCounter.classList.remove('js-visible');
-          html2canvas($ghostContainer).then(canvas => {
-            canvas.toBlob(function (blob) {
-              const file = new Blob([blob], {
-                type: 'image/png'
+      if (this.printing === false) {
+        const $ghostContainer = document.querySelector(".ghost-container");
+        const $printCounter = document.querySelector(".countdown");
+        const $app = document.querySelector(".app");
+        this.printCount = 3;
+        this.printing = true;
+        $app.classList.add('js-printing');
+        const timer = setInterval(() => {
+          if (this.printCount > 1) {
+            this.printCount--;
+          } else {
+            window.devicePixelRatio = 2;
+            $ghostContainer.classList.add('js-print');
+            $app.classList.remove('js-printing');
+            $app.classList.add('js-flash');
+            $printCounter.classList.remove('js-visible');
+            this.printing = false;
+            html2canvas($ghostContainer).then(canvas => {
+              canvas.toBlob(function (blob) {
+                const file = new Blob([blob], {
+                  type: 'image/png'
+                });
+                saveAs(file, 'ghost.png');
+                $ghostContainer.classList.remove('js-print');
+                $app.classList.remove('js-flash');
+                window.devicePixelRatio = 1;
+                this.printCount = 3;
               });
-              saveAs(file, 'ghost.png');
-              $ghostContainer.classList.remove('js-print');
-              $app.classList.remove('js-flash');
-              window.devicePixelRatio = 1;
-              this.printCount = 3;
             });
-          });
-          clearInterval(timer);
-        }
-      }, 1000);
+            clearInterval(timer);
+          }
+        }, 1000);
+      }
     },
 
     splashscreen() {

@@ -119,6 +119,33 @@
     }
   }
 
+  &.js-printing {
+    .app {
+      &__bottom {
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      &__bg {
+        filter: brightness(50%);
+        transition: filter 0.3s ease;
+      }
+    }
+
+    .about__button {
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .control {
+      &__left,
+      &__right {
+        opacity: 0;
+        transition: all 0.3s ease, 0.3s;
+      }
+    }
+  }
+
   &.js-flash {
     &:after {
       visibility: visible;
