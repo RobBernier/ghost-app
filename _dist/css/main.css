@@ -1046,9 +1046,9 @@ p {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  -webkit-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
+  -webkit-transition: opacity 0.3s ease 0.3s;
+  -o-transition: opacity 0.3s ease 0.3s;
+  transition: opacity 0.3s ease 0.3s;
 }
 
 @-webkit-keyframes spin {
