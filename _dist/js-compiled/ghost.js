@@ -23,7 +23,11 @@ const app = new Vue({
                 <img class='splashscreen__logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
               </div>
                 <div class='app__inner'>
-                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'><span>About This App</span></button>
+                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'>
+                    <img class='open' src='./img/icons/about.png' alt='about section'>
+                    <img class='close' src='./img/icons/close.png' alt='about section'>
+                    <span>About This App</span>
+                  </button>
                   <div class='about' aria-hidden='true'>
                     <div class='about__inner'>
                       <div class='about__content'>
@@ -37,7 +41,10 @@ const app = new Vue({
                         </div>
                         <div class='about__donate'>
                           <p>All donations go to keeping this site alive and putting food in our bellies.</p>
-                          <a href='https://paypal.me/ghostapp' target="_blank"><span>Donate!</span></a>
+                          <a href='https://paypal.me/ghostapp' target="_blank">
+                            <img src='./img/icons/donate.png' alt='donate'>
+                            <span>Donate</span>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -110,8 +117,14 @@ const app = new Vue({
                     </div>
 
                     <div class='app__bottom'>
-                      <button v-on:click='randomize()'><span>Randomize</span></button>
-                      <button v-on:click='print()'><span>Print</span></button>
+                      <button class='control__randomize' v-on:click='randomize()'>
+                        <img src='./img/icons/random.png' alt='randomize ghost'>
+                        <span>Randomize</span>
+                      </button>
+                      <button class='control__print' v-on:click='print()'>
+                        <img src='./img/icons/print.png' alt='print ghost'>
+                        <span>Print</span>
+                      </button>
                     </div>
 
                     <picture class='app__bg'>

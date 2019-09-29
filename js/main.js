@@ -14,7 +14,7 @@ $( document ).ready(() => {
 
   // Fix for iOS vh issues
   function resizeViewport() {
-    $('html, body, .app__inner').css({minHeight: $(window).height()});
+    $('html, body, .app, .app__inner').css({minHeight: $(window).height()});
   }
 
   resizeViewport();
