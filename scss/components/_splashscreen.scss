@@ -24,8 +24,8 @@
     top: 50%;
     left: 50%;
     width: 70vw;
-    max-width: 600px;
-    animation-duration: 0.75s;
+    max-width: 470px;
+    animation-duration: 1s;
     animation-name: shake;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -37,10 +37,10 @@
 
 @keyframes shake {
   from {
-    transform: translate(-50%, -50%) rotate(10deg);
+    transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
   }
 
   to {
-    transform: translate(-50%, -50%) rotate(-10deg);
+    transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
   }
 }
