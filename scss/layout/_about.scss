@@ -50,10 +50,15 @@
   }
 
   &__desc {
-    text-align: justify;
+    text-align: center;
   }
 
   &__donate {
+    p {
+      text-align: center;
+      margin-bottom: 1.2em;
+    }
+
     a {
       display: block;
       margin: 0 auto;
