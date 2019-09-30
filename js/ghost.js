@@ -34,14 +34,14 @@ const app = new Vue({
                       <div class='about__content'>
                         <h2 class='about__header'>About Ghost Machine</h2>
                         <div class='about-slider'>
-                          <img class='about__img' src='./img/about/bio.jpg' alt='Krista and Rob, in ghost attire'>
-                          <img class='about__img' src='./img/about/bio2.jpg' alt='Krista and Rob, in ghost attire'>
+                          <img class='about__img' src='./img/about/bio-1.jpg' alt='Krista and Rob, in ghost attire'>
+                          <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>
                         </div>
                         <div class='about__desc'>
-                          <p>Ghost machine was designed and developed with love over the course of several months. Lorem ipsum dolor sit amet consectetur, A sentence that should give you incentive to donate.</p>
+                          <p>Ghost Machine began as a silly no-name illustration series by artist Krista Perry throughout 2016 and 17. After much encouragement from her web developing partner Robert Bernier, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
                         </div>
                         <div class='about__donate'>
-                          <p>All donations go to keeping this site alive and putting food in our bellies.</p>
+                          <p>All donations go to replenishing their kitty’s litter and keeping food in their bellies.</p>
                           <a href='https://paypal.me/ghostapp' target="_blank">
                             <img src='./img/icons/donate.png' alt='donate'>
                             <span>Donate</span>
