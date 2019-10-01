@@ -1,3 +1,5 @@
+"use strict";
+
 /* global Vue */
 
 /* global VueResource */
@@ -5,147 +7,14 @@
 /* global VueRouter */
 Vue.use(VueResource);
 Vue.use(VueRouter);
-const router = new VueRouter({
+var router = new VueRouter({
   mode: 'history',
   routes: []
 });
-const app = new Vue({
+var app = new Vue({
   el: '#ghost-app',
-  router,
-  template: `<div class='app'>
-              <div class='splashscreen'>
-                <div class='splashscreen__inner'>
-                  <h1 class='splashscreen__header'>
-                    <span class='title__krista'>Krista Perry's</span>
-                    <span class='title__appname'>Ghost App!</span>
-                  </h1>
-                </div>
-                <img class='splashscreen__logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
-              </div>
-                <div class='app__inner'>
-                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'>
-                    <img class='open' src='./img/icons/about.png' alt='about section'>
-                    <img class='close' src='./img/icons/close.png' alt='about section'>
-                    <span>About This App</span>
-                  </button>
-                  <div class='about' aria-hidden='true'>
-                    <div class='about__inner'>
-                      <div class='about__content'>
-                        <h2 class='about__header'>About Ghost Machine</h2>
-                        <div class='about-slider'>
-                          <img class='about__img' src='./img/about/bio-1.jpg' alt='Krista and Rob, in ghost attire'>
-                          <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>
-                        </div>
-                        <div class='about__desc'>
-                          <p>Ghost Machine began as a silly no-name illustration series by artist Krista Perry throughout 2016 and 17. After much encouragement from her web developing partner Robert Bernier, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
-                        </div>
-                        <div class='about__donate'>
-                          <p>All donations go to replenishing their kitty’s litter and keeping food in their bellies.</p>
-                          <a href='https://paypal.me/ghostapp' target="_blank">
-                            <img src='./img/icons/donate.png' alt='donate'>
-                            <span>Donate</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class='app__top'>
-                    <div class='control__left'>
-                      <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'>
-                        <img src='./img/icons/arrow.png' alt='increment hat'>
-                        <span>Hat-</span>
-                      </button>
-                      <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, false)'>
-                        <img src='./img/icons/arrow.png' alt='increment head'>
-                        <span>Head-</span>
-                      </button>
-                      <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, false)'>
-                        <img src='./img/icons/arrow.png' alt='increment sheet'>
-                        <span>Sheet-</span>
-                      </button>
-                      <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, false)'>
-                        <img src='./img/icons/arrow.png' alt='increment shoes'>
-                        <span>Shoes-</span>
-                      </button>
-                    </div>
-
-                    <div class='ghost-container'>
-                      <div class='ghost'>
-                        <div class='ghost__body'>
-                          <div v-if='hat.choice !== 0' class='ghost__hat' :class="'ghost__hat--' + hat.choice">
-                            <img :src="'./img/hat/' + hat.choice + '.png'" alt="ghost hat" draggable='false'>
-                          </div>
-                          <div class='ghost__head' :class="'ghost__head--' + head.choice" >
-                            <img :src="'./img/head/' + head.choice + '.png'" alt='ghost head' draggable='false'>
-                          </div>
-                          <div class='ghost__sheet' :class="'ghost__sheet--' + sheet.choice">
-                            <img :src="'./img/sheet/' + sheet.choice + '.png'" alt='ghost sheet' draggable='false'>
-                          </div>
-                          <div v-if='shoes.choice !== 0' class='ghost__shoes' :class="'ghost__shoes--' + shoes.choice">
-                            <img :src="'./img/shoes/' + shoes.choice + '.png'" draggable='false'>
-                          </div>
-                        </div>
-                      </div>
-                      <div class='ghost-print'>
-                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.jpg' alt='ghost machine background'>
-
-                        <div class='ghost-print__logo'>
-                          <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
-                          <p class='hashtag'>#kpghostmachine</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class='control__right'>
-                        <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, true)'>
-                          <img src='./img/icons/arrow.png' alt='increment hat'>
-                          <span>Hat+</span>
-                        </button>
-                        <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, true)'>
-                          <img src='./img/icons/arrow.png' alt='increment head'>
-                          <span>Head+</span>
-                        </button>
-                        <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, true)'>
-                          <img src='./img/icons/arrow.png' alt='increment sheet'>
-                          <span>Sheet+</span>
-                        </button>
-                        <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, true)'>
-                          <img src='./img/icons/arrow.png' alt='increment arrow'>
-                          <span>Shoes+</span>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class='app__bottom'>
-                      <button class='control__randomize' v-on:click='randomize()'>
-                        <img src='./img/icons/random.png' alt='randomize ghost'>
-                        <span>Randomize</span>
-                      </button>
-                      <button class='control__print' v-on:click='print()'>
-                        <img src='./img/icons/print.png' alt='print ghost'>
-                        <span>Print</span>
-                      </button>
-                    </div>
-
-                    <picture class='app__bg'>
-                        <source srcset="./img/splashscreen/bg-lg.jpg" media="(min-width: 1025px)" />
-                        <img srcset='./img/splashscreen/bg.jpg' alt="ghost background" />
-                    </picture>
-                    <div class='countdown' :class="'countdown--' + printCount">
-                      <div class='timer'>
-                        <div class='timer--3'>
-                          <img src='./img/countdown/3.png' alt='countdown number 3'>
-                        </div>
-                        <div class='timer--2'>
-                          <img src='./img/countdown/2.png' alt='countdown number 2'>
-                        </div>
-                        <div class='timer--1'>
-                          <img src='./img/countdown/1.png' alt='countdown number 1'>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-             </div>`,
+  router: router,
+  template: "<div class='app'>\n              <div class='splashscreen'>\n                <div class='splashscreen__inner'>\n                  <h1 class='splashscreen__header'>\n                    <span class='title__krista'>Krista Perry's</span>\n                    <span class='title__appname'>Ghost App!</span>\n                  </h1>\n                </div>\n                <img class='splashscreen__logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>\n              </div>\n                <div class='app__inner'>\n                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'>\n                    <img class='open' src='./img/icons/about.png' alt='about section'>\n                    <img class='close' src='./img/icons/close.png' alt='about section'>\n                    <span>About This App</span>\n                  </button>\n                  <div class='about' aria-hidden='true'>\n                    <div class='about__inner'>\n                      <div class='about__content'>\n                        <h2 class='about__header'>About Ghost Machine</h2>\n                        <div class='about-slider'>\n                          <img class='about__img' src='./img/about/bio-1.jpg' alt='Krista and Rob, in ghost attire'>\n                          <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>\n                        </div>\n                        <div class='about__desc'>\n                          <p>Ghost Machine began as a silly no-name illustration series by artist Krista Perry throughout 2016 and 17. After much encouragement from her web developing partner Robert Bernier, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>\n                        </div>\n                        <div class='about__donate'>\n                          <p>All donations go to replenishing their kitty\u2019s litter and keeping food in their bellies.</p>\n                          <a href='https://paypal.me/ghostapp' target=\"_blank\">\n                            <img src='./img/icons/donate.png' alt='donate'>\n                            <span>Donate</span>\n                          </a>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class='app__top'>\n                    <div class='control__left'>\n                      <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'>\n                        <img src='./img/icons/arrow.png' alt='increment hat'>\n                        <span>Hat-</span>\n                      </button>\n                      <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, false)'>\n                        <img src='./img/icons/arrow.png' alt='increment head'>\n                        <span>Head-</span>\n                      </button>\n                      <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, false)'>\n                        <img src='./img/icons/arrow.png' alt='increment sheet'>\n                        <span>Sheet-</span>\n                      </button>\n                      <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, false)'>\n                        <img src='./img/icons/arrow.png' alt='increment shoes'>\n                        <span>Shoes-</span>\n                      </button>\n                    </div>\n\n                    <div class='ghost-container'>\n                      <div class='ghost'>\n                        <div class='ghost__body'>\n                          <div v-if='hat.choice !== 0' class='ghost__hat' :class=\"'ghost__hat--' + hat.choice\">\n                            <img :src=\"'./img/hat/' + hat.choice + '.png'\" alt=\"ghost hat\" draggable='false'>\n                          </div>\n                          <div class='ghost__head' :class=\"'ghost__head--' + head.choice\" >\n                            <img :src=\"'./img/head/' + head.choice + '.png'\" alt='ghost head' draggable='false'>\n                          </div>\n                          <div class='ghost__sheet' :class=\"'ghost__sheet--' + sheet.choice\">\n                            <img :src=\"'./img/sheet/' + sheet.choice + '.png'\" alt='ghost sheet' draggable='false'>\n                          </div>\n                          <div v-if='shoes.choice !== 0' class='ghost__shoes' :class=\"'ghost__shoes--' + shoes.choice\">\n                            <img :src=\"'./img/shoes/' + shoes.choice + '.png'\" draggable='false'>\n                          </div>\n                        </div>\n                      </div>\n                      <div class='ghost-print'>\n                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.jpg' alt='ghost machine background'>\n\n                        <div class='ghost-print__logo'>\n                          <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>\n                          <p class='hashtag'>#kpghostmachine</p>\n                        </div>\n                      </div>\n                    </div>\n\n                    <div class='control__right'>\n                        <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, true)'>\n                          <img src='./img/icons/arrow.png' alt='increment hat'>\n                          <span>Hat+</span>\n                        </button>\n                        <button :class='{ jsloading: head.loading }' v-on:click='updateFilterIndex(head, true)'>\n                          <img src='./img/icons/arrow.png' alt='increment head'>\n                          <span>Head+</span>\n                        </button>\n                        <button :class='{ jsloading: sheet.loading }' v-on:click='updateFilterIndex(sheet, true)'>\n                          <img src='./img/icons/arrow.png' alt='increment sheet'>\n                          <span>Sheet+</span>\n                        </button>\n                        <button :class='{ jsloading: shoes.loading }' v-on:click='updateFilterIndex(shoes, true)'>\n                          <img src='./img/icons/arrow.png' alt='increment arrow'>\n                          <span>Shoes+</span>\n                        </button>\n                      </div>\n                    </div>\n\n                    <div class='app__bottom'>\n                      <button class='control__randomize' v-on:click='randomize()'>\n                        <img src='./img/icons/random.png' alt='randomize ghost'>\n                        <span>Randomize</span>\n                      </button>\n                      <button class='control__print' v-on:click='print()'>\n                        <img src='./img/icons/print.png' alt='print ghost'>\n                        <span>Print</span>\n                      </button>\n                    </div>\n\n                    <picture class='app__bg'>\n                        <source srcset=\"./img/splashscreen/bg-lg.jpg\" media=\"(min-width: 1025px)\" />\n                        <img srcset='./img/splashscreen/bg.jpg' alt=\"ghost background\" />\n                    </picture>\n                    <div class='countdown' :class=\"'countdown--' + printCount\">\n                      <div class='timer'>\n                        <div class='timer--3'>\n                          <img src='./img/countdown/3.png' alt='countdown number 3'>\n                        </div>\n                        <div class='timer--2'>\n                          <img src='./img/countdown/2.png' alt='countdown number 2'>\n                        </div>\n                        <div class='timer--1'>\n                          <img src='./img/countdown/1.png' alt='countdown number 1'>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n             </div>",
   data: {
     visited: false,
     printCount: 3,
@@ -183,7 +52,7 @@ const app = new Vue({
       this.routerUpdateFilters();
     }
   },
-  mounted: function () {
+  mounted: function mounted() {
     // Splashscreen session logic
     if (!sessionStorage.getItem("visited")) {
       sessionStorage.setItem("visited", "true");
@@ -191,8 +60,8 @@ const app = new Vue({
     }
   },
   methods: {
-    loadImage(obj, index) {
-      const _this = this; // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
+    loadImage: function loadImage(obj, index) {
+      var _this = this; // If hat or shoe has index of 0 (No hat or shoe option selected), skip loading of image
 
 
       if (index === 0 && (obj.filename === 'hat' || obj.filename === 'shoes')) {
@@ -201,8 +70,8 @@ const app = new Vue({
 
         _this.routerUpdate();
       } else {
-        const newImg = new Image();
-        newImg.src = `./img/${obj.filename}/${index}.png`;
+        var newImg = new Image();
+        newImg.src = "./img/".concat(obj.filename, "/").concat(index, ".png");
 
         newImg.onload = function () {
           obj.choice = index;
@@ -212,9 +81,8 @@ const app = new Vue({
         };
       }
     },
-
-    updateFilterIndex(obj, isIncrementing) {
-      let $tempChoice = obj.choice;
+    updateFilterIndex: function updateFilterIndex(obj, isIncrementing) {
+      var $tempChoice = obj.choice;
       obj.loading = true;
 
       if (isIncrementing) {
@@ -234,16 +102,15 @@ const app = new Vue({
       this.loadImage(obj, $tempChoice);
       return false;
     },
-
-    randomize() {
-      const _this = this;
+    randomize: function randomize() {
+      var _this = this;
 
       function randomizeOption(obj) {
         obj.loading = true;
-        let sameNum = true;
+        var sameNum = true;
 
         while (sameNum) {
-          let randomNum = Math.floor(Math.random() * obj.optionct + 0);
+          var randomNum = Math.floor(Math.random() * obj.optionct + 0);
 
           if (randomNum !== obj.choice) {
             sameNum = false;
@@ -258,28 +125,29 @@ const app = new Vue({
       randomizeOption(this.sheet);
       randomizeOption(this.shoes);
     },
+    print: function print() {
+      var _this2 = this;
 
-    print() {
       if (this.printing === false) {
-        const $ghostContainer = document.querySelector(".ghost-container");
-        const $printCounter = document.querySelector(".countdown");
-        const $app = document.querySelector(".app");
+        var $ghostContainer = document.querySelector(".ghost-container");
+        var $printCounter = document.querySelector(".countdown");
+        var $app = document.querySelector(".app");
         this.printCount = 3;
         this.printing = true;
         $app.classList.add('js-printing');
-        const timer = setInterval(() => {
-          if (this.printCount > 1) {
-            this.printCount--;
+        var timer = setInterval(function () {
+          if (_this2.printCount > 1) {
+            _this2.printCount--;
           } else {
             window.devicePixelRatio = 3;
             $ghostContainer.classList.add('js-print');
             $app.classList.remove('js-printing');
             $app.classList.add('js-flash');
             $printCounter.classList.remove('js-visible');
-            this.printing = false;
-            html2canvas($ghostContainer).then(canvas => {
+            _this2.printing = false;
+            html2canvas($ghostContainer).then(function (canvas) {
               canvas.toBlob(function (blob) {
-                const file = new Blob([blob], {
+                var file = new Blob([blob], {
                   type: 'image/jpg'
                 });
                 saveAs(file, 'ghost.jpg');
@@ -294,22 +162,20 @@ const app = new Vue({
         }, 1000);
       }
     },
-
-    splashscreen() {
-      const splash = document.getElementsByClassName('splashscreen')[0];
-      const app = document.getElementsByClassName('app')[0];
+    splashscreen: function splashscreen() {
+      var splash = document.getElementsByClassName('splashscreen')[0];
+      var app = document.getElementsByClassName('app')[0];
       app.classList.add('js-firstvisit');
       splash.classList.add('js-grow');
-      setTimeout(() => {
+      setTimeout(function () {
         splash.classList.remove('js-grow');
       }, 5000);
-      setTimeout(() => {
+      setTimeout(function () {
         app.classList.add('js-show');
       }, 5300);
     },
-
-    aboutToggle(e) {
-      const $about = document.getElementsByClassName('about')[0];
+    aboutToggle: function aboutToggle(e) {
+      var $about = document.getElementsByClassName('about')[0];
 
       if (e.target.getAttribute('aria-expanded') === 'false') {
         e.target.setAttribute('aria-expanded', 'true');
@@ -319,15 +185,13 @@ const app = new Vue({
         $about.setAttribute('aria-hidden', 'true');
       }
     },
-
-    routerUpdateFilters() {
+    routerUpdateFilters: function routerUpdateFilters() {
       this.hat.choice = this.$route.query.hat;
       this.head.choice = this.$route.query.head;
       this.sheet.choice = this.$route.query.sheet;
       this.shoes.choice = this.$route.query.shoes;
     },
-
-    routerUpdate() {
+    routerUpdate: function routerUpdate() {
       this.$router.push({
         query: {
           hat: this.hat.choice,
@@ -337,6 +201,5 @@ const app = new Vue({
         }
       });
     }
-
   }
 });

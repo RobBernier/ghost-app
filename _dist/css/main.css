@@ -1200,8 +1200,23 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vw;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
@@ -1231,9 +1246,6 @@ p {
 }
 
 .splashscreen__logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 70vw;
   max-width: 470px;
   -webkit-animation-duration: 1s;
@@ -1246,31 +1258,28 @@ p {
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   z-index: 2;
 }
 
 @-webkit-keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
-            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+    -webkit-transform: scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
-            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+    -webkit-transform: scale(1) skewX(-7deg) skewY(10deg);
+            transform: scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
 @keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
-            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+    -webkit-transform: scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
-            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+    -webkit-transform: scale(1) skewX(-7deg) skewY(10deg);
+            transform: scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
