@@ -1737,6 +1737,19 @@ p {
   text-align: center;
 }
 
+.about__desc a {
+  color: #000000;
+  font-weight: 700;
+  text-decoration: underline;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.about__desc a:hover {
+  color: #ffffff;
+}
+
 .about__donate p {
   text-align: center;
   margin-bottom: 1.2em;
