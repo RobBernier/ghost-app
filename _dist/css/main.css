@@ -1770,7 +1770,7 @@ p {
 
 @media screen and (min-width: 699px) {
   .about__donate a {
-    height: 40px;
+    height: 30px;
   }
 }
 
@@ -1797,6 +1797,12 @@ p {
   overflow: hidden;
   width: 80%;
   margin: 0 auto 2em;
+}
+
+@media screen and (min-width: 699px) {
+  .about-slider {
+    width: 100%;
+  }
 }
 
 .about-slider .slick-slide {

@@ -87,7 +87,7 @@ const app = new Vue({
                         </div>
                       </div>
                       <div class='ghost-print'>
-                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.jpg' alt='ghost machine background'>
+                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.png' alt='ghost machine background'>
 
                         <div class='ghost-print__logo'>
                           <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
@@ -132,8 +132,8 @@ const app = new Vue({
                     </div>
 
                     <picture class='app__bg'>
-                        <source srcset="./img/splashscreen/bg-lg.jpg" media="(min-width: 1025px)" />
-                        <img srcset='./img/splashscreen/bg.jpg' alt="ghost background" />
+                        <source srcset="./img/splashscreen/bg-lg.png" media="(min-width: 1025px)" />
+                        <img srcset='./img/splashscreen/bg.png' alt="ghost background" />
                     </picture>
                     <div class='countdown' :class="'countdown--' + printCount">
                       <div class='timer'>
