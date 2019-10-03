@@ -37,7 +37,7 @@ const app = new Vue({
                       <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>
                     </div>
                     <div class='about__desc'>
-                      <p>Ghost Machine began as a silly no-name illustration series by artist <a href='https://www.kristaperryart.com'>Krista Perry</a> throughout 2016 and 17. After much encouragement from her web developing partner <a href='https://www.robbernier.com/'>Robert Bernier</a>, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
+                      <p>Ghost Machine began as a silly no-name illustration series by artist <a href='https://www.kristaperryart.com' target='_blank'>Krista Perry</a> throughout 2016 and 17. After much encouragement from her web developing partner <a href='https://www.robbernier.com/' target='_blank'>Robert Bernier</a>, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
                     </div>
                     <div class='about__donate'>
                       <p>All donations go to replenishing their kitty’s litter and keeping food in their bellies.</p>
