@@ -1188,6 +1188,51 @@ p {
   /* added line */
 }
 
+.control__reset {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  margin-left: 40px;
+}
+
+.control__reset:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.control__reset:active {
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.control__reset img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.control__reset span {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */
+}
+
 .app.js-firstvisit .control__left {
   left: -30px;
 }
@@ -1200,8 +1245,23 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vw;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
@@ -1231,9 +1291,6 @@ p {
 }
 
 .splashscreen__logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 70vw;
   max-width: 470px;
   -webkit-animation-duration: 1s;
@@ -1246,31 +1303,28 @@ p {
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   z-index: 2;
 }
 
 @-webkit-keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
-            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+    -webkit-transform: scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
-            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+    -webkit-transform: scale(1) skewX(-7deg) skewY(10deg);
+            transform: scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
 @keyframes shake {
   from {
-    -webkit-transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
-            transform: translate(-50%, -50%) scale(1.1) skewX(8deg) skewY(-5deg);
+    -webkit-transform: scale(1.1) skewX(8deg) skewY(-5deg);
+            transform: scale(1.1) skewX(8deg) skewY(-5deg);
   }
   to {
-    -webkit-transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
-            transform: translate(-50%, -50%) scale(1) skewX(-7deg) skewY(10deg);
+    -webkit-transform: scale(1) skewX(-7deg) skewY(10deg);
+            transform: scale(1) skewX(-7deg) skewY(10deg);
   }
 }
 
@@ -1683,6 +1737,19 @@ p {
   text-align: center;
 }
 
+.about__desc a {
+  color: #000000;
+  font-weight: 700;
+  text-decoration: underline;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.about__desc a:hover {
+  color: #ffffff;
+}
+
 .about__donate p {
   text-align: center;
   margin-bottom: 1.2em;
@@ -1716,7 +1783,7 @@ p {
 
 @media screen and (min-width: 699px) {
   .about__donate a {
-    height: 40px;
+    height: 30px;
   }
 }
 
@@ -1743,6 +1810,12 @@ p {
   overflow: hidden;
   width: 80%;
   margin: 0 auto 2em;
+}
+
+@media screen and (min-width: 699px) {
+  .about-slider {
+    width: 100%;
+  }
 }
 
 .about-slider .slick-slide {

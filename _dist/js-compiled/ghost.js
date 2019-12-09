@@ -22,33 +22,33 @@ const app = new Vue({
                 </div>
                 <img class='splashscreen__logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
               </div>
-                <div class='app__inner'>
-                  <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'>
-                    <img class='open' src='./img/icons/about.png' alt='about section'>
-                    <img class='close' src='./img/icons/close.png' alt='about section'>
-                    <span>About This App</span>
-                  </button>
-                  <div class='about' aria-hidden='true'>
-                    <div class='about__inner'>
-                      <div class='about__content'>
-                        <h2 class='about__header'>About Ghost Machine</h2>
-                        <div class='about-slider'>
-                          <img class='about__img' src='./img/about/bio-1.jpg' alt='Krista and Rob, in ghost attire'>
-                          <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>
-                        </div>
-                        <div class='about__desc'>
-                          <p>Ghost Machine began as a silly no-name illustration series by artist Krista Perry throughout 2016 and 17. After much encouragement from her web developing partner Robert Bernier, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
-                        </div>
-                        <div class='about__donate'>
-                          <p>All donations go to replenishing their kitty’s litter and keeping food in their bellies.</p>
-                          <a href='https://paypal.me/ghostapp' target="_blank">
-                            <img src='./img/icons/donate.png' alt='donate'>
-                            <span>Donate</span>
-                          </a>
-                        </div>
-                      </div>
+              <button class='about__button' @click='aboutToggle($event)' aria-expanded='false'>
+                <img class='open' src='./img/icons/about.png' alt='about section'>
+                <img class='close' src='./img/icons/close.png' alt='about section'>
+                <span>About This App</span>
+              </button>
+              <div class='about' aria-hidden='true'>
+                <div class='about__inner'>
+                  <div class='about__content'>
+                    <h2 class='about__header'>About Ghost Machine</h2>
+                    <div class='about-slider'>
+                      <img class='about__img' src='./img/about/bio-1.jpg' alt='Krista and Rob, in ghost attire'>
+                      <img class='about__img' src='./img/about/bio-2.jpg' alt='Krista and Rob, in ghost attire'>
+                    </div>
+                    <div class='about__desc'>
+                      <p>Ghost Machine began as a silly no-name illustration series by artist <a href='https://www.kristaperryart.com'>Krista Perry</a> throughout 2016 and 17. After much encouragement from her web developing partner <a href='https://www.robbernier.com/'>Robert Bernier</a>, the two joined forces to create an app that would allow others to create and share their own ghosts.</p>
+                    </div>
+                    <div class='about__donate'>
+                      <p>All donations go to replenishing their kitty’s litter and keeping food in their bellies.</p>
+                      <a href='https://paypal.me/ghostapp' target="_blank">
+                        <img src='./img/icons/donate.png' alt='donate'>
+                        <span>Donate</span>
+                      </a>
                     </div>
                   </div>
+                </div>
+              </div>
+                <div class='app__inner'>
                   <div class='app__top'>
                     <div class='control__left'>
                       <button :class='{ jsloading: hat.loading }' v-on:click='updateFilterIndex(hat, false)'>
@@ -87,7 +87,7 @@ const app = new Vue({
                         </div>
                       </div>
                       <div class='ghost-print'>
-                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.jpg' alt='ghost machine background'>
+                        <img class='ghost-print__bg' src='./img/splashscreen/bg-lg.png' alt='ghost machine background'>
 
                         <div class='ghost-print__logo'>
                           <img class='logo' src='./img/splashscreen/grave.png' alt='ghost machine logo'>
@@ -125,11 +125,15 @@ const app = new Vue({
                         <img src='./img/icons/print.png' alt='print ghost'>
                         <span>Print</span>
                       </button>
+                      <button class='control__reset' v-on:click='reset()'>
+                        <img src='./img/icons/reset.png' alt='reset ghost'>
+                        <span>Reset</span>
+                      </button>
                     </div>
 
                     <picture class='app__bg'>
-                        <source srcset="./img/splashscreen/bg-lg.jpg" media="(min-width: 1025px)" />
-                        <img srcset='./img/splashscreen/bg.jpg' alt="ghost background" />
+                        <source srcset="./img/splashscreen/bg-lg.png" media="(min-width: 1025px)" />
+                        <img srcset='./img/splashscreen/bg.png' alt="ghost background" />
                     </picture>
                     <div class='countdown' :class="'countdown--' + printCount">
                       <div class='timer'>
@@ -278,6 +282,27 @@ const app = new Vue({
             $printCounter.classList.remove('js-visible');
             this.printing = false;
             html2canvas($ghostContainer).then(canvas => {
+              if (!HTMLCanvasElement.prototype.toBlob) {
+                Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
+                  value: function (callback, type, quality) {
+                    var canvas = this;
+                    setTimeout(function () {
+                      var binStr = atob(canvas.toDataURL(type, quality).split(',')[1]),
+                          len = binStr.length,
+                          arr = new Uint8Array(len);
+
+                      for (var i = 0; i < len; i++) {
+                        arr[i] = binStr.charCodeAt(i);
+                      }
+
+                      callback(new Blob([arr], {
+                        type: type || 'image/png'
+                      }));
+                    });
+                  }
+                });
+              }
+
               canvas.toBlob(function (blob) {
                 const file = new Blob([blob], {
                   type: 'image/jpg'
@@ -293,6 +318,14 @@ const app = new Vue({
           }
         }, 1000);
       }
+    },
+
+    reset() {
+      this.loadImage(this.hat, 0);
+      this.loadImage(this.head, 0);
+      this.loadImage(this.sheet, 0);
+      this.loadImage(this.shoes, 0);
+      this.routerUpdate();
     },
 
     splashscreen() {
